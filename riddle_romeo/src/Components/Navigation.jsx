@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import LogoImage from '../Assets/Images/Riddle_Romeo_Logo.jpg';
 
 const Navigation = () => {
-  var logBool = true;
+  var logBool = false;
 
   // Conditionally render navigation links based on logBool
   let navLinks;

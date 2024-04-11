@@ -1,16 +1,69 @@
 
-.Home_Container{
-    background: linear-gradient(to bottom right, #3498db, #2ecc71);
-    min-height: 85vh;
-    min-width: 100vw;
-    background-size: cover;
-}
-
-
-.FormText {
-  font-family: 'Montserrat', sans-serif;
-
-  color: #ffffff;
+.CustomQuiz_Head
+{
+  text-align: center;
   font-size: 2rem;
-  
+  margin: 30px;
 }
+.CustomQuiz_Form {
+  margin-left: 60%;
+  transform: translateX(-50%);
+  width: 80%;
+  border-collapse: separate; /* Ensure borders collapse properly */
+  border-spacing: 0 20px; /* Add spacing between rows */
+}
+
+
+.CustomQuiz_Form tr {
+  margin: 0;
+}
+
+.CustomQuiz_Form td {
+  padding: 10px; /* Add padding to table data cells */
+}
+
+.CustomQuiz_Form label {
+  display: inline-block;
+  width: 150px; /* Adjust label width as needed */
+  font-weight: bold;
+}
+
+.CustomQuiz_Form select,
+.CustomQuiz_Form input {
+  width: calc(100% - 160px); /* Adjust input and select width */
+  padding: 8px;
+  font-size: 16px;
+}
+
+.CustomQuiz_Submit {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.CustomQuiz_Submit button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.CustomQuiz_Submit button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .CustomQuiz_Form tr {
+      display: block;
+      margin-bottom: 30px; /* Adjust margin for smaller screens */
+  }
+
+  .CustomQuiz_Form td {
+      display: block;
+      padding: 0; /* Remove padding for smaller screens */
+  }
+}
+

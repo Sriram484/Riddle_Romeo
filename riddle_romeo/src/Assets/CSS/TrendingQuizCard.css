@@ -1,7 +1,7 @@
 h1 {
     text-align: center;
 
-    margin: 2rem auto;
+    margin: 2cap auto;
     font-size: 46px;
     font-family: 'Times New Roman', Times, serif;
     color: #089da1;
@@ -9,6 +9,7 @@ h1 {
 
   .container{
     display: flex;
+    
     align-items: center;
     justify-content: center;
   }
