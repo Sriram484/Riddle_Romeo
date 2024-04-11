@@ -1,0 +1,84 @@
+h1 {
+    text-align: center;
+
+    margin: 2rem auto;
+    font-size: 46px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #089da1;
+  }
+
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product--image {
+    width: 100%; /* Adjust image width to 100% */
+    height: auto; /* Allow height to adjust proportionally */
+    margin: 1rem;
+    max-height: 16em; /* Limit max height if necessary */
+    object-fit: cover;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+    margin: auto; /* Center the card horizontally */
+    text-align: center;
+    font-family: arial;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100%;
+    width: 100%;
+}
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  .btn{
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    width: max-content;
+    margin: 5px;
+    /*  */
+    
+  }
+  #cart{
+    background-color: orange;
+  }
+  #buy{
+    background-color: green;
+  }
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  hr{
+    margin: 3rem;
+    position: relative;
+    border: none;
+    background: black;
+  }
+  
+  .Link{
+    text-decoration: none;
+  }
+
+  .TrendingQuizCardBody{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    justify-content: left;
+    text-align: left;
+  }

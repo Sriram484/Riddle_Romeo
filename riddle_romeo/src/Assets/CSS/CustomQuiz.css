@@ -1,0 +1,16 @@
+
+.Home_Container{
+    background: linear-gradient(to bottom right, #3498db, #2ecc71);
+    min-height: 85vh;
+    min-width: 100vw;
+    background-size: cover;
+}
+
+
+.FormText {
+  font-family: 'Montserrat', sans-serif;
+
+  color: #ffffff;
+  font-size: 2rem;
+  
+}
