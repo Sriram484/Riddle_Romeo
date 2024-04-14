@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import UrlCreator from "./Trivia_API/UrlCreator";
-import QuetionObjectCreator from "./Trivia_API/QuetionObjectCreator";
+import QuestionObjectCreator from "./Trivia_API/QuestionObjectCreator";
 
 const CustomQuiz = () => {
     const navigate = useNavigate();
@@ -47,13 +47,14 @@ const CustomQuiz = () => {
         console.log(result);
         const URL = UrlCreator(result);
         console.log(URL);
-        const QuestionsPromise = QuetionObjectCreator(URL);
-    
+        const QuestionsPromise = QuestionObjectCreator(URL);
+        
+        console.log(QuestionsPromise);
+
         QuestionsPromise.then(Questions => {
             navigate('/QuestionDisplayer', { state: { questions: Questions } });
             console.log(Questions);
         }).catch(error => {
-            
             console.error("Error fetching questions:", error);
         });
         }

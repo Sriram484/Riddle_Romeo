@@ -2,7 +2,7 @@ import "../Assets/CSS/QuestionDisplayer.css"
 import React, { useEffect, useState } from 'react'
 import {useLocation} from 'react-router-dom';
 
-const QuestionDisplayer = (props) => {
+const QuestionDisplayer = () => {
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -12,9 +12,11 @@ const QuestionDisplayer = (props) => {
     const [optionClicked, setOptionClicked] = useState(false); 
 
     const location = useLocation();
+    console.log(location);
 
     useEffect(() => {
         if (location.state && location.state.questions) {
+
             const updatedQuestions = location.state.questions.map(question => {
                 const allOptions = [...question.incorrect_answers, question.correct_answer];
                 const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
@@ -24,12 +26,13 @@ const QuestionDisplayer = (props) => {
                 };
             });
             setQuestions(updatedQuestions);
+            console.log(updatedQuestions);
         }
     }, [location.state]);
 
     const handleClick = async (event, option) => {
-        if (!optionClicked) { // Check if option has been clicked before
-          const currentAnswer = option;
+        if (optionClicked===false) { // Check if option has been clicked before
+          const currentAnswer = option.toLowerCase();
           const correctAnswer = questions[index].correct_answer.toLowerCase();
       
           if (currentAnswer.toLowerCase() === correctAnswer) {
@@ -43,7 +46,7 @@ const QuestionDisplayer = (props) => {
           
             correctOptionElement.style.backgroundColor = 'green';
           }
-          event.target.style.color = 'white';
+        //   event.target.style.color = 'white';
           setOptionClicked(true); 
       
           await sleep(2000);

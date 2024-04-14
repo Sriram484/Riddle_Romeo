@@ -3,7 +3,7 @@ import axios from 'axios';
 const QuetionObjectCreator = async (URL) => {
     try {
         const response = await axios.get(URL);
-        
+        console.log(response);
         if (response.status !== 200) {
             throw new Error("Invalid");
         }
