@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#root{
+      /* Set the background image */
+      /* background-image: url('./Assets/Images/istockphoto-1185682262-612x612.jpg'); */
+      /* Set the background size to cover the entire element */
+      /* background-size: cover; */
+      /* min-height: 100vh; */
+      /* Optionally, you can set other properties like background position and repeat */
+      /* background-position: center; Centers the background image */
+      /* background-repeat: no-repeat; Prevents the background image from repeating */
+}

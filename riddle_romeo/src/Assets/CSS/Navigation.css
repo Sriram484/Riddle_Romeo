@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Comfortaa:wght@300..700&family=Jersey+25&family=Lobster&family=Satisfy&family=Yatra+One&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -12,8 +13,6 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #fff;
-    
     padding: 0px 7%;
     display: flex;
     align-items: center;
@@ -39,6 +38,9 @@
     text-decoration: none;
     font-size: 20px;
     padding: 20px;
+    font-family: "Yatra One", system-ui;
+    font-weight: 400;
+    font-style: normal;
     color: #595c5c;
     display: block;
    }
@@ -74,7 +76,8 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #fff;
+        background-color: white;
+        z-index: 999;
         border-top: 1px solid rbga(0,0,0,1);
         display: none;
       }

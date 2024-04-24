@@ -2,12 +2,17 @@ import './App.css';
 import {BrowserRouter as Router} from "react-router-dom"
 import Routing from './Routing/Routing';
 
+import  UserStatusProvider  from './Components/useContextComponent/UserStatusProvider';
+
 function App() {
   return (
     <>
     <Router>
-      <Routing/>
-    </Router>
+      <UserStatusProvider>
+        <Routing />
+      </UserStatusProvider>
+      </Router>
+
     </>
   );
 }
