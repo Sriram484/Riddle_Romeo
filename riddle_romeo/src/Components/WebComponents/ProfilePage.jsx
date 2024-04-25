@@ -35,7 +35,7 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8081/api/v1/userData/search/${userStatus.userId}`);
+                const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
                 const userData = response.data;
     
                 // Update generalUserData state
@@ -119,7 +119,7 @@ const ProfilePage = () => {
 
         try {
           
-            const response = await axios.get(`http://localhost:8081/api/v1/userData/search/${userStatus.userId}`);
+            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
     
          
             const currentData = response.data;
@@ -133,7 +133,7 @@ const ProfilePage = () => {
             };
     
            
-            await axios.put(`http://localhost:8081/api/v1/userData/edit/${userStatus.userId}`, newData);
+            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
     
             console.log("Data updated successfully");
         } catch (error) {
@@ -146,7 +146,7 @@ const ProfilePage = () => {
     
         try {
           
-            const response = await axios.get(`http://localhost:8081/api/v1/userData/search/${userStatus.userId}`);
+            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
     
          
             const currentData = response.data;
@@ -158,7 +158,7 @@ const ProfilePage = () => {
             };
     
            
-            await axios.put(`http://localhost:8081/api/v1/userData/edit/${userStatus.userId}`, newData);
+            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
     
             console.log("Data updated successfully");
         } catch (error) {
@@ -172,7 +172,7 @@ const ProfilePage = () => {
     
         try {
           
-            const response = await axios.get(`http://localhost:8081/api/v1/userData/search/${userStatus.userId}`);
+            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
     
          
             const currentData = response.data;
@@ -188,7 +188,7 @@ const ProfilePage = () => {
             };
     
            
-            await axios.put(`http://localhost:8081/api/v1/userData/edit/${userStatus.userId}`, newData);
+            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
     
             console.log("Data updated successfully");
         } catch (error) {
@@ -206,7 +206,7 @@ const ProfilePage = () => {
             setImageUserData({ image: reader.result });
             console.log("Image data:", reader.result);
             try {
-                const response = await axios.get(`http://localhost:8081/api/v1/userData/search/${userStatus.userId}`);
+                const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
                 const currentData = response.data;
                 console.log("Current data:", currentData);
                 const newData = {
@@ -214,7 +214,7 @@ const ProfilePage = () => {
                     image: reader.result
                 };
                 console.log("New data:", newData);
-                await axios.put(`http://localhost:8081/api/v1/userData/edit/${userStatus.userId}`, newData);
+                await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
                 console.log("Data updated successfully");
             } catch (error) {
                 console.error('Error:', error);

@@ -34,7 +34,7 @@ const Score = () => {
     
     const updateScore = async (quizStats) => {
       try {
-        const scoreResponse = await axios.get(`http://localhost:8081/api/v1/score/search/${userStatus.scoreId}`);
+        const scoreResponse = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/score/search/${userStatus.scoreId}`);
         console.log(scoreResponse);
         console.log(quizStats);
         console.log(userStatus.scoreId);
@@ -51,7 +51,7 @@ const Score = () => {
           mul = 3;
         }
         const newOverallScore = scoreResponse.data.overAllScore + mul*quizStats.score;
-        const response = await axios.put(`http://localhost:8081/api/v1/score/edit/${userStatus.scoreId}`, {
+        const response = await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/score/edit/${userStatus.scoreId}`, {
               
                 userId:userStatus.userId,
                 overAllScore: newOverallScore

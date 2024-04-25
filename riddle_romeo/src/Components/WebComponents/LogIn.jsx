@@ -27,7 +27,7 @@ const LogIn = () => {
         try
         {
             const result = await axios.get(
-                "http://localhost:8081/api/v1/userData/getall");
+                "https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall");
                 console.log(result.data);
                 const userData = result.data.find(user => 
                     user.userName === checkData.identifier || user.email === checkData.identifier

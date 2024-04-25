@@ -3,9 +3,9 @@ import axios from "axios";
 export const getResultArray = async () => {
   try {
 
-    const userDataPromise = axios.get("http://localhost:8081/api/v1/userData/getall");
+    const userDataPromise = axios.get("https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall");
 
-    const scorePromise = axios.get("http://localhost:8081/api/v1/score/getall");
+    const scorePromise = axios.get("https://riddle-romeo-login-api-8.onrender.com/api/v1/score/getall");
 
     const [userDataResponse, scoreResponse] = await Promise.all([userDataPromise, scorePromise]);
     console.log(userDataPromise);

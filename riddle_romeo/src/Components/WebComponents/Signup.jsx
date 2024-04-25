@@ -29,7 +29,7 @@ const Signup = () => {
         try
         {
             
-        const responseUser = await axios.post("http://localhost:8081/api/v1/userData/save",
+        const responseUser = await axios.post("https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/save",
         {
             userName: userData.user_name,
             scoreId:"",
@@ -43,7 +43,7 @@ const Signup = () => {
 
         });
         const currentUserId = responseUser.data;
-        const responseScore = await axios.post("http://localhost:8081/api/v1/score/save",
+        const responseScore = await axios.post("https://riddle-romeo-login-api-8.onrender.com/api/v1/score/save",
         {
             userId : currentUserId,
             overAllScore : 0,
@@ -53,7 +53,7 @@ const Signup = () => {
             
         });
         const currentScoreId = responseScore.data;
-        await axios.put(`http://localhost:8081/api/v1/userData/edit/${currentUserId}`, {
+        await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${currentUserId}`, {
             userName: userData.user_name,
             scoreId: currentScoreId,
             name: userData.name,

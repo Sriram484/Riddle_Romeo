@@ -3,7 +3,7 @@ import React from 'react'
 const Missing = () => {
   return (
     <div>
-      Fuck Off
+      You break my website
     </div>
   )
 }
