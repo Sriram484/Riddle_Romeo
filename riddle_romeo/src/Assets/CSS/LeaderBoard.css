@@ -98,3 +98,12 @@
     font-size: 24px;
 }
 
+
+@media(max-width:900px) {
+   .leaderboard{
+    font-size: 22px;
+   }
+   *{
+    font-size: 18px;
+   }
+}
