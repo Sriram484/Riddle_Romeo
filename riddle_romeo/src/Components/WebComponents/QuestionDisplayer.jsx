@@ -23,7 +23,7 @@ const QuestionDisplayer = () => {
         questionType: '',
         difficulty: ''
     });
-    
+
 
     //Timer
     useEffect(() => {
@@ -40,8 +40,8 @@ const QuestionDisplayer = () => {
             }
         }, 1000);
 
-        return () => clearInterval(timer); 
-    }, [minutes, seconds]); 
+        return () => clearInterval(timer);
+    }, [minutes, seconds]);
     const formattedTime = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 
 
@@ -84,7 +84,7 @@ const QuestionDisplayer = () => {
                         .map(option => ({
                             text: decodeHTML(option),
                             correct: option === question.correct_answer // Add a flag indicating if the option is correct
-                        })) 
+                        }))
                 };
                 return decodedQuestion;
             });
@@ -92,29 +92,30 @@ const QuestionDisplayer = () => {
         }
 
         setQuizStats(prevStats => ({
-        score: 0,
-        totalQuestions: location.state.questions.length,
-        questionType: location.state.questions[0].type,
-        difficulty: location.state.questions[0].difficulty}));
+            score: 0,
+            totalQuestions: location.state.questions.length,
+            questionType: location.state.questions[0].type,
+            difficulty: location.state.questions[0].difficulty
+        }));
         console.log(location.state.questions[0].type);
 
     }, [location.state]);
 
     //NumberJs
-    const handleIndex =(index)=>{
+    const handleIndex = (index) => {
         setIndex(index);
     }
 
     //OptionsCSS
 
-    const handleClick = async (event, option,index) => {
+    const handleClick = async (event, option, index) => {
         const optionId = `Question${index}Value${option}`;
         const isCorrect = (option === questions[index].correct_answer);
         console.log(isCorrect);
         const isOptionAlreadyCorrect = optionClicked[optionId];
 
         const isAnyOptionClicked = Object.keys(optionClicked).some(key => key.startsWith(`Question${index}Value`) && optionClicked[key]);
-    
+
         if (isAnyOptionClicked) {
             const prevOptionId = Object.keys(optionClicked).find(key => key.startsWith(`Question${index}Value`) && optionClicked[key]);
             setOptionClicked(prevState => ({
@@ -122,7 +123,7 @@ const QuestionDisplayer = () => {
                 [prevOptionId]: false
             }));
         }
-    
+
         setOptionClicked(prevState => ({
             ...prevState,
             [optionId]: true
@@ -132,27 +133,27 @@ const QuestionDisplayer = () => {
 
         const prevOptionId = Object.keys(optionClicked).find(key => key.startsWith(`Question${index}Value`) && optionClicked[key]);
         const prevOptionCorrect = prevOptionId && prevOptionId === `Question${index}Value${questions[index].correct_answer}`;
-        
+
         if (!isOptionAlreadyCorrect) {
-        setQuizStats(prevStats => ({
-            ...prevStats,
-            score: isCorrect ? prevStats.score + (prevOptionCorrect ? 0 : 1) : prevStats.score - (prevOptionCorrect ? 1 : 0) // Increment or decrement score based on correctness of the current and previous selections
-        }));
-    }
+            setQuizStats(prevStats => ({
+                ...prevStats,
+                score: isCorrect ? prevStats.score + (prevOptionCorrect ? 0 : 1) : prevStats.score - (prevOptionCorrect ? 1 : 0) // Increment or decrement score based on correctness of the current and previous selections
+            }));
+        }
 
     };
-    
-    
-    
-    useEffect(()=>{
+
+
+
+    useEffect(() => {
         console.log(quizStats);
-    },[quizStats])
+    }, [quizStats])
 
     if (questions.length === 0) {
         return <div>Loading...</div>;
     }
 
-    const handleSubmit = ()=>{
+    const handleSubmit = () => {
         navigate('/Score', { state: { quizStats } });
     }
     return (
@@ -166,7 +167,7 @@ const QuestionDisplayer = () => {
                         {formattedTime}
                     </div>
                     <div className="QuestionDisplayerSubmitButtonContainer">
-                        <button onClick={(e)=>handleSubmit(e)}>End</button>
+                        <button onClick={(e) => handleSubmit(e)} id = "end">End</button>
                     </div>
                 </div>
             </div>
@@ -179,7 +180,7 @@ const QuestionDisplayer = () => {
                                 <div key={index}
                                     className={`QuestionNumberBlock ${activeIndex.includes(index) ? 'Numberactive' : ''}`}
                                     onClick={() => handleIndex(index)}
-                                    >{index + 1}</div>
+                                >{index + 1}</div>
                             ))}
                         </div>
                     </div>
@@ -192,12 +193,12 @@ const QuestionDisplayer = () => {
                             <div className='QuestionDisplayer_Option_Body'>
                                 <ul className='QuestionDisplayer_Option_Ul'>
                                     {questions[index].options.map((option, ind) => (
-                                        <li key={ind} value={index} className='QuestionDisplayer_Option' onClick={(event) => handleClick(event, option.text,index)}>
+                                        <li key={ind} value={index} className='QuestionDisplayer_Option' onClick={(event) => handleClick(event, option.text, index)}>
                                             <div className="QuestionDisplayer_Option_Icon">
-                                            <img src={optionClicked[`Question${index}Value${option.text}`] ? bulltarget : bull} id={`Question${index}Value${option.text}`} />
-                                                </div>
-                                                <span className={option.correct ? 'correct-option' : ''}>{option.text}</span>
-                                            </li>
+                                                <img src={optionClicked[`Question${index}Value${option.text}`] ? bulltarget : bull} id={`Question${index}Value${option.text}`} />
+                                            </div>
+                                            <span className={option.correct ? 'correct-option' : ''}>{option.text}</span>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
@@ -206,7 +207,7 @@ const QuestionDisplayer = () => {
                                     <button
                                         onClick={() => {
                                             setIndex(prev => prev - 1);
-                                   
+
                                         }}
                                         id="prev"
                                         disabled={index === 0} // Disable when index is 0
@@ -217,13 +218,15 @@ const QuestionDisplayer = () => {
                                 <div className='QuestionDisplayer_Button'>
                                     <button
                                         onClick={() => {
-                                            setIndex(prev => prev + 1);
-                                       
+                                            if (index === questions.length - 1) {
+                                                handleSubmit(); // Call handleSubmit when reaching the last question
+                                            } else {
+                                                setIndex(prev => prev + 1); // Move to the next question if not the last one
+                                            }
                                         }}
-                                        id="next"
-                                        disabled={index === questions.length - 1} // Disable when index is last
+                                        id={index === questions.length - 1 ? 'end' : 'next'}
                                     >
-                                        Next
+                                        {index === questions.length - 1 ? 'End' : 'Next'} {/* Change button text based on index */}
                                     </button>
                                 </div>
                             </div>

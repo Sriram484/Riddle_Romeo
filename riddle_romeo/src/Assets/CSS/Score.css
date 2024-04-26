@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+.ScoreMainContainer *{
+font-family: "Noto Sans", sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+font-variation-settings:
+  "wdth" 100;
+}
 .ScoreMainContainer{
     display: flex;
     flex-direction: column;
@@ -8,8 +17,8 @@
 }
 
 .lottie-animation {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .ScoreDisplayer{
@@ -65,3 +74,27 @@
          font-size: 18px;
         
 }
+
+.ScoreBoy{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.GirlWalking{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width: 1000px) {
+    .GirlWalking,.ScoreBoy{
+        display: none;
+    }
+}
+  
+  

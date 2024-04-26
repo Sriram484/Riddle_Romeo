@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.MissingContainer *{
+    font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    
+}
+.MissingContainer{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.MissingContinerHeading h3{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 649;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+      font-size: 32px;
+      text-align: center;
+}
+.MissingContinerHeading p{
+    margin: 15px;
+
+}
+.MissingContinerHeading span{
+    font-weight: 649;
+}
+ol{
+    list-style:decimal;
+}

@@ -33,6 +33,7 @@ const Navigation = () => {
     );
   } else {
     navLinks = (
+      <React.Fragment>
       <li>
         <NavLink to="/profile" style={({ isActive }) => {
           return isActive ? { color: "" } : {};
@@ -40,6 +41,20 @@ const Navigation = () => {
           Your Profile
         </NavLink>
       </li>
+      <li>
+        <NavLink  style={({ isActive }) => {
+          return isActive ? { color: "" } : {};
+        }} replace onClick={()=>{
+          setUserStatus(prevState => ({
+            userId: "",
+            scoreId: "",
+            status: false
+        }));
+        }} >
+          Log Out
+        </NavLink>
+      </li>
+      </React.Fragment>
     );
   }
 

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "../../Assets/CSS/Score.css"
 import Airplane from "../../Assets/Images/AirplaneLottie.json"
+import BoySkating from "../../Assets/Images/Boy skating.json"
+import GirlWalking from "../../Assets/Images/GirlWalkingAway.json"
 import Lottie from "lottie-react"
 import { useLocation, useNavigate } from 'react-router-dom'
 import Navigation from './Navigation'
@@ -69,6 +71,9 @@ const Score = () => {
     <div className='TotalScore'>
       <Navigation userStatus={userStatus}/>
     <div className='ScoreMainContainer'>
+     
+        <Lottie animationData={BoySkating} className='ScoreBoy'/>
+ 
       <div className='ScoreAirplaneContainer'>
         <Lottie animationData={Airplane}  className='lottie-animation'/>
       </div>
@@ -86,6 +91,7 @@ const Score = () => {
       <div className='ScoreHomebutton'>
           <button onClick={handleClick} >Another Quiz</button>
       </div>
+        <Lottie animationData={GirlWalking} className='GirlWalking'/>
     </div>
     </div>
   )
