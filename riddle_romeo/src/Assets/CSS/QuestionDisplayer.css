@@ -362,12 +362,16 @@
 }
 
 #prev{
-    background-color: rgb(231, 199, 39);
+    background-color:blue;
+    color: #ccc;
 }
 #next{
-    background-color: rgb(231, 199, 39);
+    background-color: blue;
+    color: #ccc;
+ 
 }
 
 #end{
     background-color: red;
+    color: #ccc;
 }

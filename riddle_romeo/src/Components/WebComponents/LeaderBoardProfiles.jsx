@@ -37,9 +37,6 @@ function Item(data){
             {
                 data.map((value, index) => (
                     <div className="flex" key={index}>
-                        <div className='itemCup'>
-                            <img src={getMedalImage(index)} alt="" style={{ width: "30px", height: "30px" }} />
-                    </div>
                         <div className='itemNumber'>
                             {index+1}
                         </div>
