@@ -11,6 +11,8 @@ import ProfilePage from '../Components/WebComponents/ProfilePage';
 import LeaderBoard from '../Components/WebComponents/LeaderBoard';
 import Score from '../Components/WebComponents/Score';
 import App from '../Components/WebComponents/LoadingPage';
+import QuizOfTheDay from '../Components/WebComponents/QuizOfTheDay';
+import QuizOfTheDayQuestionDisplayer from '../Components/WebComponents/QuizOfTheDayQuestionDisplayer';
 
 
 
@@ -30,9 +32,9 @@ const Routing = () => {
       <Route exact path='/leaderboard' element={<LeaderBoard />}/>
       <Route exact path='/score' element={<Score />}/>
       <Route exact path='/loading' element={<App />}/>
+      <Route exact path='/DayQuiz' element={<QuizOfTheDay />}/>
+      <Route exact path='/QuizOfTheDayQuestionDisplayer' element={<QuizOfTheDayQuestionDisplayer />}/>
       <Route exact path='/*' element={<Missing />}/>
-
-
       </Routes>
       
 

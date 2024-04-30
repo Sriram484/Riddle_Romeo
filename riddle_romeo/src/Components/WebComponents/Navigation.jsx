@@ -1,14 +1,16 @@
 import "../../Assets/CSS/Navigation.css"
 import React, { useContext } from 'react'
 import { FaBars } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import  Logo from "../../Assets/Images/Logo.jpeg"
 // import LogoImage from '../Assets/Images/Riddle_Romeo_Logo.jpg';
+import { SpringQuestion as questions } from '../Data/Spring.js';
 
 const Navigation = () => {
   const { userStatus, setUserStatus } = useContext(UserStatusContext);
   var logBool = userStatus.status;
+  const navigate = useNavigate();
 
   // Conditionally render navigation links based on logBool
   let navLinks;
@@ -81,9 +83,11 @@ const Navigation = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="#" style={({ isActive }) => {
+              <NavLink to="/DayQuiz"  style={({ isActive }) => {
                 return isActive ? { color: "" } : {};
-              }} replace>
+              }} replace onClick={()=>{
+              
+                }}>
                 Quiz Of The Day
               </NavLink>
             </li>

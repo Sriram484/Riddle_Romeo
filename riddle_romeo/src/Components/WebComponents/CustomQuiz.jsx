@@ -8,6 +8,7 @@ import QuestionObjectCreator from "../Functions/QuestionObjectCreator";
 import Navigation from "./Navigation";
 
 const CustomQuiz = ({userStatus}) => {
+    //
     const navigate = useNavigate();
     const [result,setResult] = useState({
         id:9,

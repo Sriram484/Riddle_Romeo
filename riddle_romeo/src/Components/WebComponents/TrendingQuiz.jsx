@@ -48,17 +48,18 @@ const TrendingQuiz = ({category,setCategory,userStatus}) => {
         </div>
 
         <div className='Trending_List'>
-        <Carousel responsive={responsiveList} arrows={false}>
+        <Carousel responsive={responsiveList} arrows={false} className="List_Headings">
             {homeCategories.map((cat) => (
             <div
             key={cat.id}
-            className={activeCategory === cat.id ? "Active" : ""}
+            className={`carousel-item ${activeCategory === cat.id ? "Active" : ""}`}
             onClick={() => handleClick(cat.id)}
+            style={{ Width: `200px`,textAlign:"center" }}
             >
             {cat.name}
             </div>
         ))}
-            <div className={activeCategory === "11" ? "Active" : ""} onClick={()=>{navigate("/cus")}}>
+            <div className={`carousel-item ${activeCategory === "11" ? "Active" : ""}`} onClick={()=>{navigate("/cus")}}>
                         Need More??
                     </div>
         </Carousel>

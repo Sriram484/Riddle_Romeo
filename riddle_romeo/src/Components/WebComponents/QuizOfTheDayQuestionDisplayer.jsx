@@ -1,11 +1,10 @@
-import "../../Assets/CSS/QuestionDisplayer.css"
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import bull from "../../Assets/Images/bullseye.png"
 import bulltarget from "../../Assets/Images/redBull.png"
 
-const QuestionDisplayer = () => {
-
+const QuizOfTheDayQuestionDisplayer = () => {
+    const location = useLocation();
     const navigate = useNavigate();
     const [minutes, setMinutes] = useState(10);
     const [seconds, setSeconds] = useState(0);
@@ -20,7 +19,6 @@ const QuestionDisplayer = () => {
         questionType: '',
         difficulty: ''
     });
-
 
     //Timer
     useEffect(() => {
@@ -63,7 +61,6 @@ const QuestionDisplayer = () => {
 
 
     //Getting the data
-    const location = useLocation();
     const decodeHTML = (text) => {
         const textArea = document.createElement('textarea');
         textArea.innerHTML = text;
@@ -72,31 +69,28 @@ const QuestionDisplayer = () => {
 
     useEffect(() => {
         if (location.state && location.state.questions) {
-            // console.log(location.state.questions);
-            const updatedQuestions = location.state.questions.map(question => {
-                const decodedQuestion = {
+            const shuffledQuestions = location.state.questions
+                .map(question => ({
                     ...question,
-                    question: decodeHTML(question.question), // Decode the question text
-                    options: question.incorrect_answers.concat(question.correct_answer) // Concatenate incorrect and correct answers
-                        .sort(() => Math.random() - 0.5) // Shuffle the options
+                    options: question.incorrect_answers.concat(question.correct_answer)
+                        .sort(() => Math.random() - 0.5)
                         .map(option => ({
                             text: decodeHTML(option),
-                            correct: option === question.correct_answer // Add a flag indicating if the option is correct
+                            correct: option === question.correct_answer
                         }))
-                };
-                return decodedQuestion;
+                }))
+                .sort(() => Math.random() - 0.5); // Shuffle the questions
+    
+            const selectedQuestions = shuffledQuestions.slice(0, 15); // Select the first 15 questions
+    
+            setQuestions(selectedQuestions);
+            setQuizStats({
+                score: 0,
+                totalQuestions: 15, // Set total questions to 15
+                questionType: selectedQuestions[0].type,
+                difficulty: selectedQuestions[0].difficulty
             });
-            setQuestions(updatedQuestions);
         }
-
-        setQuizStats(prevStats => ({
-            score: 0,
-            totalQuestions: location.state.questions.length,
-            questionType: location.state.questions[0].type,
-            difficulty: location.state.questions[0].difficulty
-        }));
-        // console.log(location.state.questions[0].type);
-
     }, [location.state]);
 
     //NumberJs
@@ -236,6 +230,6 @@ const QuestionDisplayer = () => {
             </div>
         </div>
     );
-};
+}
 
-export default QuestionDisplayer;
+export default QuizOfTheDayQuestionDisplayer

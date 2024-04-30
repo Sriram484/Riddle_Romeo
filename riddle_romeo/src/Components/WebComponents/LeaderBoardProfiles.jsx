@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../../Assets/CSS/LeaderBoard.css"
-import goldCup from '../../Assets/Images/gold.png'; // Import gold cup image
+import goldCup from '../../Assets/Images/GoldCup.jpg'; // Import gold cup image
 import silverCup from '../../Assets/Images/silver.jpeg'; // Import silver cup image
 import bronzeCup from '../../Assets/Images/bronze.jpeg';
 
@@ -37,12 +37,11 @@ function Item(data){
             {
                 data.map((value, index) => (
                     <div className="flex" key={index}>
+                        <div className='itemCup'>
+                            <img src={getMedalImage(index)} alt="" style={{ width: "30px", height: "30px" }} />
+                    </div>
                         <div className='itemNumber'>
                             {index+1}
-                        </div>
-
-                        <div className="item">
-                            <img src={value.image} alt="" style={{ maxWidth: "100%", height: "87px" }} />
                         </div>
                         <div className="info" style={{ flex: 1 }}>
                             <h3 className='name text-dark'>{value.name}</h3>    

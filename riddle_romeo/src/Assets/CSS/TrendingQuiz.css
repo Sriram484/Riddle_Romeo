@@ -53,8 +53,9 @@
 
 .Trending_List div.Active
 {
-    border-bottom: 2px solid black;
-    color: black;
+    /* border-bottom: 2px solid black;
+    color: black; */
+    text-decoration: underline;
 }
 
 .Trending_List div:hover {
@@ -77,8 +78,30 @@
     margin-top: 2rem; /* Adjust top margin as needed */
 }
 
+.List_Headings{
+    min-width: 170px;
+}
+
 @media screen and (max-width: 600px) {
    .Trending_Carousel{
     margin-top: 0;
    }
+   .Trending_Body{
+    margin-left: 0;
+   }
+   .Trending_Head{
+    margin-left: 15px;
+   }
   }
+
+  .carousel-items {
+    display: flex;
+    justify-content: space-between; /* Equal space between items */
+    margin: 0 -10px; /* Adjust as needed */
+    text-align: center;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    margin: 0 10px; /* Adjust as needed */
+}

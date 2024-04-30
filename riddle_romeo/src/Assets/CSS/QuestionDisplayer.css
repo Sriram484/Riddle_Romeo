@@ -359,6 +359,10 @@
     .QuestionDisplayer_Head{
         font-size: 24px;
     }
+    .QuestionDisplayer_ButtonContainer{
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 #prev{
