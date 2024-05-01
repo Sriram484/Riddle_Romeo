@@ -3,6 +3,7 @@ import LeaderBoardProfiles from './LeaderBoardProfiles';
 import "../../Assets/CSS/LeaderBoard.css"
 import Navigation from './Navigation';
 import { getResultArray } from '../Functions/LeaderBoard';
+import { fetchLeaderboardData } from '../Functions/Fetcher';
 
 const LeaderBoard = ({ userStatus }) => {
   const [btns, setBtns] = useState({
@@ -22,25 +23,22 @@ const LeaderBoard = ({ userStatus }) => {
     });
 
   };
-  useEffect(() => {
-  }, [btns]);
-
   const [leaderboard, setLeaderboard] = useState([]);
 
+  //Fetch the leader board
   useEffect(() => {
     const fetchLeaderboard = async () => {
-      try {
-        const resultArray = await getResultArray();
-        console.log(resultArray);
-        setLeaderboard(resultArray);
-      } catch (error) {
-        console.error("Error fetching leaderboard data:", error);
-      }
+        try {
+            //Fetcher Function
+            const resultArray = await fetchLeaderboardData();
+            setLeaderboard(resultArray);
+        } catch (error) {
+            console.error("Error fetching leaderboard data:", error);
+        }
     };
 
     fetchLeaderboard();
-
-  }, [btns]);
+}, [btns]);
 
   useEffect(() => {
     console.log(leaderboard);

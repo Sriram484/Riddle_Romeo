@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router} from "react-router-dom"
-import Routing from './Routing/Routing';
+import Routing from './Components/Routing/Routing';
 
 import  UserStatusProvider  from './Components/useContextComponent/UserStatusProvider';
 

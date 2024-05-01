@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import TrendingQuiz from '../Components/WebComponents/TrendingQuiz'
-import CustomQuiz from '../Components/WebComponents/CustomQuiz';
-import QuestionDisplayer from '../Components/WebComponents/QuestionDisplayer';
-import LogIn from '../Components/WebComponents/LogIn';
-import Signup from '../Components/WebComponents/Signup';
-import Missing from '../Components/WebComponents/Missing';
-import ProfilePage from '../Components/WebComponents/ProfilePage';
-import LeaderBoard from '../Components/WebComponents/LeaderBoard';
-import Score from '../Components/WebComponents/Score';
-import App from '../Components/WebComponents/LoadingPage';
-import QuizOfTheDay from '../Components/WebComponents/QuizOfTheDay';
-import QuizOfTheDayQuestionDisplayer from '../Components/WebComponents/QuizOfTheDayQuestionDisplayer';
+import TrendingQuiz from '../WebComponents/TrendingQuiz'
+import CustomQuiz from '../WebComponents/CustomQuiz';
+import QuestionDisplayer from '../WebComponents/QuestionDisplayer';
+import LogIn from '../WebComponents/LogIn';
+import Signup from '../WebComponents/Signup';
+import Missing from '../WebComponents/Missing';
+import ProfilePage from '../WebComponents/ProfilePage';
+import LeaderBoard from '../WebComponents/LeaderBoard';
+import Score from '../WebComponents/Score';
+import QuizOfTheDay from '../WebComponents/QuizOfTheDay';
+import QuizOfTheDayQuestionDisplayer from '../WebComponents/QuizOfTheDayQuestionDisplayer';
 
 
 
@@ -30,7 +29,6 @@ const Routing = () => {
       <Route exact path='/profile' element={<ProfilePage />}/>
       <Route exact path='/leaderboard' element={<LeaderBoard />}/>
       <Route exact path='/score' element={<Score />}/>
-      <Route exact path='/loading' element={<App />}/>
       <Route exact path='/DayQuiz' element={<QuizOfTheDay />}/>
       <Route exact path='/QuizOfTheDayQuestionDisplayer' element={<QuizOfTheDayQuestionDisplayer />}/>
       <Route exact path='/*' element={<Missing />}/>

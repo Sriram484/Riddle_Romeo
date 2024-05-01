@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import UrlCreator from "../Functions/UrlCreator";
 import QuestionObjectCreator from "../Functions/QuestionObjectCreator";
 import Navigation from "./Navigation";
+import { fetchCategories } from "../Functions/Fetcher";
 
 const CustomQuiz = ({userStatus}) => {
-    //
+    
     const navigate = useNavigate();
     const [result,setResult] = useState({
         id:9,
@@ -18,9 +19,9 @@ const CustomQuiz = ({userStatus}) => {
         type:"multiple"
 
     });
-
     const [optionArray,setOptionArray] = useState([]);
 
+    //Store the options that we changed
     const handleCategoryChange = (event) => {
         const selectedIndex = event.target.selectedIndex;
         setResult(prevState => ({
@@ -31,6 +32,7 @@ const CustomQuiz = ({userStatus}) => {
         
     };
 
+    //Store the input such as Difficulty,Number Of Question and type
     const handleInputChange = (event) => {
         const { name, value } = event.target;
 
@@ -40,7 +42,7 @@ const CustomQuiz = ({userStatus}) => {
         }));
     };
 
-    // const handleSubmit=()=>{}
+    //Handle the submit fuction
     const handleSubmit = () => {
         if (result.amount <= 0) {
             alert(`Kindly enter the "Number of Questions" greater than 0`);
@@ -65,25 +67,17 @@ const CustomQuiz = ({userStatus}) => {
         }
     }
     
-  useEffect(()=>{
-    const fetch = async()=>{
-        try{
-            const list = await axios.get(`https://opentdb.com/api_category.php`);
-            if(list.status!==200)
-            {
-                throw new Error("Invalid")
-            }
-           
-              setOptionArray(list.data.trivia_categories);
-        }
-        catch(e)
-        {
-            
-        }
-    }
-    fetch();
-   
-},[]);
+    //Fetch the options
+    useEffect(() => {
+        const fetchData = async () => {
+            //Called from Function file
+            const categories = await fetchCategories();
+            setOptionArray(categories);
+        };
+
+        fetchData();
+    }, []);
+
 
   return (
     <div>

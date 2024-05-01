@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import Lottie from "lottie-react"
 import Cupid from "../../Assets/Images/Cupid.json"
+import { handleLoginSubmit } from "../Functions/UserDataValidator";
 
 const LogIn = () => {
     const { userStatus, setUserStatus } = useContext(UserStatusContext);
@@ -14,6 +15,7 @@ const LogIn = () => {
         password: ""
     });
 
+    //Handle the input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCheckData(prevState => ({
@@ -22,39 +24,10 @@ const LogIn = () => {
         }));
     };
 
+    //Handle Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try
-        {
-            const result = await axios.get(
-                "https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall");
-                console.log(result.data);
-                const userData = result.data.find(user => 
-                    user.userName === checkData.identifier || user.email === checkData.identifier
-                );
-        
-                if (userData) {
-                    if (userData.password === checkData.password) {
-                        setUserStatus({
-                            userId:userData.userId,
-                            scoreId:userData.scoreId,
-                            status:true
-                        })
-                        console.log(userStatus);
-                        navigate("/home")
-                        
-                    } else {
-                        alert("Hey We Think you forgot your password !!!");
-                    }
-                } else {
-                    alert("Hey your are not in our romantic dictionaries. Kindly register ;)")
-                    
-                }
-        }
-    catch(err)
-        {
-          alert("User Registation Failed");
-        }
+        await handleLoginSubmit(checkData, setUserStatus, navigate, "https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall");
     };
 
     useEffect(()=>{
