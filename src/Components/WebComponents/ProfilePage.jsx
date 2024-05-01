@@ -177,6 +177,7 @@ const ProfilePage = () => {
                     password: passwordUserData.password
                 };
 
+                console.log(newData);
                 // Update user data
                 await updateUserData(userStatus.userId, newData);
 
