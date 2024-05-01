@@ -211,20 +211,20 @@ const ProfilePage = () => {
             <div class="profile_container">
                 <h4 class="profile_heading">Account settings</h4>
                 <div class="profile_card">
-                    <div class="profile_sidebar">
-                        <a class="profile_sidebarLinks" onClick={() => toggleSection('profile')}>
-                            General
-                        </a>
-                        <a class="profile_sidebarLinks" onClick={() => toggleSection('password')}>
-                            Change password
-                        </a>
-                        <a class="profile_sidebarLinks" onClick={() => toggleSection('info')}>
-                            Info
-                        </a>
-                        <a class="profile_sidebarLinks" onClick={() => { navigate("/") }}>
-                            Back
-                        </a>
-                    </div>
+                <div className="profile_sidebar">
+    <a className={sections.profile ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('profile')}>
+        General
+    </a>
+    <a className={sections.password ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('password')}>
+        Change password
+    </a>
+    <a className={sections.info ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('info')}>
+        Info
+    </a>
+    <a className="profile_sidebarLinks" onClick={() => { navigate("/") }}>
+        Back
+    </a>
+</div>
                     <div className="Profile_TotalBody">
                         <div className={sections.profile ? "Visible" : "Hidden"} class="profile_mainBody" id="account-general">
                             <div class="profile_picContainer">
@@ -278,7 +278,7 @@ const ProfilePage = () => {
                             <div class="password_subBody">
                                 <div className="form-group">
                                     <label className="form-label">Current password</label>
-                                    <input type="password" className="form-control" name="currentPassword" />
+                                    <input type="password" className="form-control" name="currentPassword" onChange={handleChangePasswordData}/>
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">New password</label>
@@ -292,7 +292,7 @@ const ProfilePage = () => {
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Repeat new password</label>
-                                    <input type="password" className="form-control" name="repeatPassword" />
+                                    <input type="password" className="form-control" name="repeatPassword" onChange={handleChangePasswordData}/>
                                 </div>
                                 <div className="form-group">
                                     <button onClick={handlePasswordSubmit} className="ScoreSubmitButton">Submit</button>
