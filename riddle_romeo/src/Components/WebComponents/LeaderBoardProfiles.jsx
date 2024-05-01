@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import "../../Assets/CSS/LeaderBoard.css"
 import goldCup from '../../Assets/Images/GoldCup.jpg'; // Import gold cup image
 import silverCup from '../../Assets/Images/silver.jpeg'; // Import silver cup image

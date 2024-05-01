@@ -36,7 +36,6 @@ const QuestionDisplayer = () => {
                 setSeconds(prevSeconds => prevSeconds - 1);
             }
         }, 1000);
-
         return () => clearInterval(timer);
     }, [minutes, seconds]);
     const formattedTime = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
@@ -85,7 +84,7 @@ const QuestionDisplayer = () => {
                         }))
                 };
                 return decodedQuestion;
-            });
+            },[location.state]);
             setQuestions(updatedQuestions);
         }
 

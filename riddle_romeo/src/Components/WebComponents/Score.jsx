@@ -53,7 +53,7 @@ const Score = () => {
           mul = 3;
         }
         const newOverallScore = scoreResponse.data.overAllScore + mul*quizStats.score;
-        const response = await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/score/edit/${userStatus.scoreId}`, {
+        await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/score/edit/${userStatus.scoreId}`, {
               
                 userId:userStatus.userId,
                 overAllScore: newOverallScore

@@ -1,5 +1,5 @@
 import "../../Assets/CSS/TrendingQuiz.css"
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import Carousel from "react-multi-carousel";
 import { responsive } from "../../Assets/Carousel_Settings/Trending_Carousel";
 import { responsiveList } from "../../Assets/Carousel_Settings/Trending_Carousel_List";

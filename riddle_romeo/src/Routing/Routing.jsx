@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Navigation from '../Components/WebComponents/Navigation'
 import TrendingQuiz from '../Components/WebComponents/TrendingQuiz'
 import CustomQuiz from '../Components/WebComponents/CustomQuiz';
 import QuestionDisplayer from '../Components/WebComponents/QuestionDisplayer';

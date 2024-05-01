@@ -4,8 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import  Logo from "../../Assets/Images/Logo.jpeg"
-// import LogoImage from '../Assets/Images/Riddle_Romeo_Logo.jpg';
-import { SpringQuestion as questions } from '../Data/Spring.js';
+
 
 const Navigation = () => {
   const { userStatus, setUserStatus } = useContext(UserStatusContext);
