@@ -1,8 +1,8 @@
 import React from 'react'
 import "../../Assets/CSS/LeaderBoard.css"
-import goldCup from '../../Assets/Images/GoldCup.jpg'; // Import gold cup image
-import silverCup from '../../Assets/Images/silver.jpeg'; // Import silver cup image
-import bronzeCup from '../../Assets/Images/bronze.jpeg';
+import goldCup from '../../Assets/Images/Trophies/gold.png'; // Import gold cup image
+import silverCup from '../../Assets/Images/Trophies/silver.jpeg'; // Import silver cup image
+import bronzeCup from '../../Assets/Images/Trophies/bronze.jpeg';
 
 
 const LeaderBoardProfiles = ({leaderboard}) => {

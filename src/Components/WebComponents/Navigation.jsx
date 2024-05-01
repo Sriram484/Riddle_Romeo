@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { FaBars } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
-import  Logo from "../../Assets/Images/Logo.jpeg"
+import  Logo from "../../Assets/Images/Others/Logo.jpeg"
 
 
 const Navigation = () => {

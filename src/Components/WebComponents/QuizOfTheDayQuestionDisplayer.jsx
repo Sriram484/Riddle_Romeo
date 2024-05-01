@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import bull from "../../Assets/Images/bullseye.png"
-import bulltarget from "../../Assets/Images/redBull.png"
+import bull from "../../Assets/Images/Others/bullseye.png"
+import bulltarget from "../../Assets/Images/Others/redBull.png"
 
 const QuizOfTheDayQuestionDisplayer = () => {
     const location = useLocation();

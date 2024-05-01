@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import Lottie from "lottie-react"
-import Cupid from "../../Assets/Images/Cupid.json"
+import Cupid from "../../Assets/Images/Lottie/Cupid.json"
 import { handleLoginSubmit } from "../Functions/UserDataValidator";
 
 const LogIn = () => {

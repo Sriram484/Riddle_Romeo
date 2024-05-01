@@ -1,9 +1,8 @@
 import React, { useState} from 'react';
-import axios from 'axios';
 import "../../Assets/CSS/Signup.css";
 import { useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react"
-import Cupid from "../../Assets/Images/Cupid.json"
+import Cupid from "../../Assets/Images/Lottie/Cupid.json"
 import { handleRegistration } from '../Functions/Registration';
 
 

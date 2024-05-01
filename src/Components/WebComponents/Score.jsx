@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "../../Assets/CSS/Score.css"
-import Airplane from "../../Assets/Images/AirplaneLottie.json"
-import BoySkating from "../../Assets/Images/Boy skating.json"
-import GirlWalking from "../../Assets/Images/GirlWalkingAway.json"
+import Airplane from "../../Assets/Images/Lottie/AirplaneLottie.json"
+import BoySkating from "../../Assets/Images/Lottie/Boy skating.json"
+import GirlWalking from "../../Assets/Images/Lottie/GirlWalkingAway.json"
 import Lottie from "lottie-react"
 import { useLocation, useNavigate } from 'react-router-dom'
 import Navigation from './Navigation'
-import axios from "axios";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import { updateScore } from '../Functions/UpdateScore'
 

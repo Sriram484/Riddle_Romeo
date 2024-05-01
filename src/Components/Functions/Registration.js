@@ -1,7 +1,47 @@
 import axios from 'axios';
+import { fetchUserData } from './Fetcher';
+
+
+export async function checkUsernameAndEmail(username, email, url) {
+    try {
+        const url = "https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall";
+        // Fetch user data from the provided URL
+        const userDataList = await fetchUserData(url);
+
+        // Check if username or email already exists in the fetched user data
+        const usernameExists = userDataList.map(user => user.userName === username);
+        const emailExists = userDataList.map(user => user.email === email);
+
+        // Check if any username or email matches
+        const isUsernameExists = usernameExists.includes(true);
+        const isEmailExists = emailExists.includes(true);
+
+        return { usernameExists: isUsernameExists, emailExists: isEmailExists };
+    } catch (error) {
+        console.error("Error checking username and email:", error);
+        throw new Error("Failed to check username and email");
+    }
+}
 
 export async function handleRegistration(userData, setUserData, navigate) {
     try {
+        const url = ""
+        // Check if username or email already exists
+        const { usernameExists, emailExists } = await checkUsernameAndEmail(userData.user_name, userData.email, url);
+
+        // If either username already exists, show an alert
+        if (usernameExists) {
+            alert("Username already exists. Please choose a different one.");
+            return; 
+        }
+        
+        // If either email already exists, show an alert
+        if (emailExists) {
+            alert("Email already exists. Please choose a different one.");
+            return; 
+        }
+
+        // Proceed with registration if username and email are unique
         const responseUser = await axios.post("https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/save", {
             userName: userData.user_name,
             scoreId: "",

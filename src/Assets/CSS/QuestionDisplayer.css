@@ -352,7 +352,7 @@
 }
 
 
-@media(max-width:900px) {
+@media(max-width:980px) {
     .QuestionNumberDisplayer{
         display: none;
     }
@@ -364,6 +364,23 @@
         flex-direction: row;
     }
 }
+@media (max-width: 840px) {
+    .QuestionDisplayer_Question {
+        border: none;
+    }
+
+    .QuestionDisplayer_ButtonContainer {
+        display: flex;
+        flex-direction: row; /* This is the default, so it's not necessary */
+    }
+
+    .QuestionDisplayer_ButtonContainer button {
+        margin: 3px;
+        max-width: 100px;
+        padding: 10px 20px;
+    }
+}
+
 
 #prev{
     background-color:blue;

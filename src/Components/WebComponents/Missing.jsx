@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../Assets/CSS/Missing.css"
-import Robot from "../../Assets/Images/RobotError.json"
+import Robot from "../../Assets/Images/Lottie/RobotError.json"
 import Lottie from "lottie-react"
 const Missing = () => {
   return (

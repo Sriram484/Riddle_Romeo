@@ -1,9 +1,7 @@
 import React from 'react'
 
 import "../../Assets/CSS/TrendingQuizCard.css"
-import QuestionObjectCreator from "../Functions/QuestionObjectCreator";
 import { useNavigate } from 'react-router-dom';
-import UrlCreator from '../Functions/UrlCreator';
 import { handleQuestionsPromise } from '../Functions/QustionPromise';
 
 
@@ -58,7 +56,7 @@ const TrendingQuizCard = ({category,Level,Number_of_Questions,imageUrl,Type,Poin
         <div className="card">
            
             <div className='container'>
-            <img className="product--image" src={require(`../../Assets/Images/${imageUrl}.jpeg`)}  alt="product image" />
+            <img className="product--image" src={require(`../../Assets/Images/LandingPageImages/${imageUrl}.jpeg`)}  alt="product image" />
           </div>
           <div className='TrendingQuizCardBody'>
           <p style={{ color: "black", margin: "10px" }}>Level: {capitalize(Level)}</p>
