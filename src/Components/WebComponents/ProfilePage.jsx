@@ -136,6 +136,8 @@ const ProfilePage = () => {
             };
 
             // Update user data
+            console.log("crnDta:"+currentData);
+                console.log("newDta:"+newData);
             await updateUserData(userStatus.userId, newData);
 
             console.log("Data updated successfully");
@@ -176,7 +178,8 @@ const ProfilePage = () => {
                     // password: passwordUserData.newPassword
                 };
 
-                console.log(newData);
+                console.log("crnDta:"+currentData);
+                console.log("newDta:"+newData);
                 // Update user data
                 await updateUserData(userStatus.userId, newData);
 
@@ -205,6 +208,8 @@ const ProfilePage = () => {
             };
 
             // Update user data
+            console.log("crnDta:"+currentData);
+                console.log("newDta:"+newData);
             await updateUserData(userStatus.userId, newData);
         } catch (error) {
             console.error('Error handling info submit:', error);
