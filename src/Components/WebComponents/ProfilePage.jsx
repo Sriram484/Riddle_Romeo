@@ -159,9 +159,15 @@ const ProfilePage = () => {
                 alert("The password u entered is wrong");
                 return;
             }
-            else if (passwordUserData.newPassword !== passwordUserData.repeatPassword) {
+            if (passwordUserData.newPassword !== passwordUserData.repeatPassword) {
                 alert("The new password and repeated password do not match");
                 return;
+            }
+            if(passwordUserData.newPassword.length==0)
+            {
+                alert("The new password and repeated password do not be empty");
+                return;
+
             }
             else {
                 // Create updated data object

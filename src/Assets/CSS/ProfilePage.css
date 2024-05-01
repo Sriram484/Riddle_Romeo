@@ -142,7 +142,6 @@
 }
 
 .activeLink {
-    background-color: black;
-    color: white;
+    background: rgb(238, 238, 238);
 }
 
