@@ -174,7 +174,7 @@ const ProfilePage = () => {
                 // Create updated data object
                 const newData = {
                     ...currentData,
-                    password: passwordUserData.password
+                    password: passwordUserData.newPassword
                 };
 
                 console.log(newData);
