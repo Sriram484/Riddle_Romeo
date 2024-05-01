@@ -170,6 +170,7 @@ const ProfilePage = () => {
 
             }
             else {
+                const currentData = await getUserData(userStatus.userId);
                 // Create updated data object
                 const newData = {
                     ...currentData,
