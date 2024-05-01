@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { FaBars } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
-import  Logo from "../../Assets/Images/Others/Logo.jpeg"
+import Logo from "../../Assets/Images/Others/Logo.jpeg"
 
 
 const Navigation = () => {
@@ -35,26 +35,26 @@ const Navigation = () => {
   } else {
     navLinks = (
       <React.Fragment>
-      <li>
-        <NavLink to="/profile" style={({ isActive }) => {
-          return isActive ? { color: "" } : {};
-        }} replace>
-          Your Profile
-        </NavLink>
-      </li>
-      <li>
-        <NavLink  style={({ isActive }) => {
-          return isActive ? { color: "" } : {};
-        }} replace onClick={()=>{
-          setUserStatus(prevState => ({
-            userId: "",
-            scoreId: "",
-            status: false
-        }));
-        }} >
-          Log Out
-        </NavLink>
-      </li>
+        <li>
+          <NavLink to="/profile" style={({ isActive }) => {
+            return isActive ? { color: "" } : {};
+          }} replace>
+            Your Profile
+          </NavLink>
+        </li>
+        <li>
+          <NavLink style={({ isActive }) => {
+            return isActive ? { color: "" } : {};
+          }} replace onClick={() => {
+            setUserStatus(prevState => ({
+              userId: "",
+              scoreId: "",
+              status: false
+            }));
+          }} >
+            Log Out
+          </NavLink>
+        </li>
       </React.Fragment>
     );
   }
@@ -63,7 +63,7 @@ const Navigation = () => {
     <>
       <header>
         <div id="nav_logo">
-          <img src={Logo} alt="App_Logo"  style={{maxHeight:"80px",maxWidth:"80px"}}/>
+          <img src={Logo} alt="App_Logo" style={{ maxHeight: "80px", maxWidth: "80px" }} />
         </div>
 
         {/* For Phone view we are creating a invisible checkbox */}
@@ -82,11 +82,11 @@ const Navigation = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/DayQuiz"  style={({ isActive }) => {
+              <NavLink to="/DayQuiz" style={({ isActive }) => {
                 return isActive ? { color: "" } : {};
-              }} replace onClick={()=>{
-              
-                }}>
+              }} replace onClick={() => {
+
+              }}>
                 Quiz Of The Day
               </NavLink>
             </li>

@@ -83,7 +83,7 @@ const QuestionDisplayer = () => {
                         }))
                 };
                 return decodedQuestion;
-            },[location.state]);
+            }, [location.state]);
             setQuestions(updatedQuestions);
         }
 
@@ -103,7 +103,6 @@ const QuestionDisplayer = () => {
 
     //Options CSS to add BullEye
     const handleClick = async (event, option, index) => {
-        console.log(location.state);
         const optionId = `Question${index}Value${option}`;
         const isCorrect = (option === questions[index].correct_answer);
         const isOptionAlreadyCorrect = optionClicked[optionId];
@@ -155,7 +154,7 @@ const QuestionDisplayer = () => {
                         {formattedTime}
                     </div>
                     <div className="QuestionDisplayerSubmitButtonContainer">
-                        <button onClick={(e) => handleSubmit(e)} id = "end">End</button>
+                        <button onClick={(e) => handleSubmit(e)} id="end">End</button>
                     </div>
                 </div>
             </div>

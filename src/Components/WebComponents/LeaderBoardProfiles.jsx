@@ -5,14 +5,14 @@ import silverCup from '../../Assets/Images/Trophies/silver.jpeg'; // Import silv
 import bronzeCup from '../../Assets/Images/Trophies/bronze.jpeg';
 
 
-const LeaderBoardProfiles = ({leaderboard}) => {
-    console.log(leaderboard);
-   
+const LeaderBoardProfiles = ({ leaderboard }) => {
+
+
     return (
         <div id="profile">
             {Item(leaderboard)}
         </div>
-  )
+    )
 }
 
 function getMedalImage(index) {
@@ -29,36 +29,36 @@ function getMedalImage(index) {
 }
 
 
-function Item(data){
-    console.log(data);
+function Item(data) {
+
     return (
-        
+
         <div className='Leader'>
             {
                 data.map((value, index) => (
                     <div className="flex" key={index}>
                         <div className='itemCup'>
                             <img src={getMedalImage(index)} alt="" style={{ width: "30px", height: "30px" }} />
-                    </div>
+                        </div>
                         <div className='itemNumber'>
-                            {index+1}
+                            {index + 1}
                         </div>
                         <div className="info" style={{ flex: 1 }}>
-                            <h3 className='name text-dark'>{value.name}</h3>    
+                            <h3 className='name text-dark'>{value.name}</h3>
                             <span>{value.country}</span>
-                        </div>                
+                        </div>
                         <div className="item" style={{ textAlign: "right", minWidth: "50px" }}>
                             <span>{value.score}</span>
                         </div>
                     </div>
 
-                
-                    )
+
+                )
                 )
             }
         </div>
 
 
-)
+    )
 }
 export default LeaderBoardProfiles

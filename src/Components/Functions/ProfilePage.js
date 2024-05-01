@@ -18,7 +18,7 @@ export const  convertToBase64 = async(e,userStatus, setImageUserData) => {
             };
 
             await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
-            console.log("Data updated successfully");
+            alert("Data updated successfully");
         };
     } catch (error) {
         console.error('Error:', error);
@@ -40,7 +40,7 @@ export const getUserData = async (userId) => {
 export const updateUserData = async (userId, newData) => {
     try {
         await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userId}`, newData);
-        console.log("Data updated successfully");
+        alert("Data updated successfully");
     } catch (error) {
         console.error('Error updating user data:', error);
         throw error; // Re-throw the error to be handled by the caller

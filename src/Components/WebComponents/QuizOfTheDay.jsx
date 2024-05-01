@@ -3,13 +3,13 @@ import { SpringQuestion as questions } from '../Data/Spring'
 import { useNavigate } from 'react-router-dom'
 
 const QuizOfTheDay = () => {
-    const navigate = useNavigate();
-    useEffect(()=>{
-        navigate('/QuizOfTheDayQuestionDisplayer', { state: { questions } });
-    },[])
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/QuizOfTheDayQuestionDisplayer', { state: { questions } });
+  }, [])
   return (
     <div>
-      
+
     </div>
   )
 }

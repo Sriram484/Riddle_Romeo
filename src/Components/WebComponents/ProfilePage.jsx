@@ -95,7 +95,7 @@ const ProfilePage = () => {
             ...prevUserData,
             [name]: value
         }));
-        console.log(generalUserData);
+
 
 
     };
@@ -121,7 +121,6 @@ const ProfilePage = () => {
 
     const handleGeneralSubmit = async (e) => {
         e.preventDefault();
-        console.log(userStatus.userId);
 
         try {
             // Fetch user data
@@ -136,15 +135,10 @@ const ProfilePage = () => {
             };
 
             // Update user data
-            
-            console.log("currentData:");
-            console.log(currentData);
-console.log("newData:");
-console.log(newData);
 
             await updateUserData(userStatus.userId, newData);
 
-            console.log("Data updated successfully");
+            alert("Data updated successfully");
         } catch (error) {
             console.error('Error:', error);
         }
@@ -152,15 +146,11 @@ console.log(newData);
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
-        console.log(userStatus.userId);
 
         try {
             // Fetch user data
             const currentData = await getUserData(userStatus.userId);
-            console.log(currentData);
-            console.log(currentData.password);
-            console.log(passwordUserData);
-            
+
             if (currentData.password !== passwordUserData.currentPassword) {
                 alert("The password u entered is wrong");
                 return;
@@ -169,8 +159,7 @@ console.log(newData);
                 alert("The new password and repeated password do not match");
                 return;
             }
-            if(passwordUserData.newPassword.length==0)
-            {
+            if (passwordUserData.newPassword.length == 0) {
                 alert("The new password and repeated password do not be empty");
                 return;
 
@@ -182,25 +171,19 @@ console.log(newData);
                     password: passwordUserData.newPassword
                 };
 
-                
-                console.log("currentData:");
-                console.log(currentData);
-console.log("newData:");
-console.log(newData);
-
                 // Update user data
                 await updateUserData(userStatus.userId, newData);
 
-                console.log("Data updated successfully");
+                alert("Data updated successfully");
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Error:', error);
         }
     };
 
     const handleInfoSubmit = async (e) => {
         e.preventDefault();
-        console.log(userStatus.userId);
 
         try {
             // Fetch user data
@@ -216,18 +199,16 @@ console.log(newData);
             };
 
             // Update user data
-            
-            console.log("currentData:");
-            console.log(currentData);
-console.log("newData:");
-console.log(newData);
 
             await updateUserData(userStatus.userId, newData);
-        } catch (error) {
+            alert("Data updated successfully");
+
+        }
+        catch (error) {
             console.error('Error handling info submit:', error);
         }
 
-        console.log(infoUserData);
+
     }
 
     return (
@@ -235,20 +216,20 @@ console.log(newData);
             <div class="profile_container">
                 <h4 class="profile_heading">Account settings</h4>
                 <div class="profile_card">
-                <div className="profile_sidebar">
-    <a className={sections.profile ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('profile')}>
-        General
-    </a>
-    <a className={sections.password ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('password')}>
-        Change password
-    </a>
-    <a className={sections.info ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('info')}>
-        Info
-    </a>
-    <a className="profile_sidebarLinks" onClick={() => { navigate("/") }}>
-        Back
-    </a>
-</div>
+                    <div className="profile_sidebar">
+                        <a className={sections.profile ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('profile')}>
+                            General
+                        </a>
+                        <a className={sections.password ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('password')}>
+                            Change password
+                        </a>
+                        <a className={sections.info ? "profile_sidebarLinks activeLink" : "profile_sidebarLinks"} onClick={() => toggleSection('info')}>
+                            Info
+                        </a>
+                        <a className="profile_sidebarLinks" onClick={() => { navigate("/") }}>
+                            Back
+                        </a>
+                    </div>
                     <div className="Profile_TotalBody">
                         <div className={sections.profile ? "Visible" : "Hidden"} class="profile_mainBody" id="account-general">
                             <div class="profile_picContainer">
@@ -302,7 +283,7 @@ console.log(newData);
                             <div class="password_subBody">
                                 <div className="form-group">
                                     <label className="form-label">Current password</label>
-                                    <input type="password" className="form-control" name="currentPassword" onChange={handleChangePasswordData}/>
+                                    <input type="password" className="form-control" name="currentPassword" onChange={handleChangePasswordData} />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">New password</label>
@@ -316,7 +297,7 @@ console.log(newData);
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Repeat new password</label>
-                                    <input type="password" className="form-control" name="repeatPassword" onChange={handleChangePasswordData}/>
+                                    <input type="password" className="form-control" name="repeatPassword" onChange={handleChangePasswordData} />
                                 </div>
                                 <div className="form-group">
                                     <button onClick={handlePasswordSubmit} className="ScoreSubmitButton">Submit</button>

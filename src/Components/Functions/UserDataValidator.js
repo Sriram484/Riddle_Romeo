@@ -4,7 +4,6 @@ import { fetchUserData } from "./Fetcher";
 export async function handleLoginSubmit(checkData, setUserStatus, navigate, url) {
     try {
         const result = await fetchUserData(url);
-        console.log(result);
         const userData = result.find(
             user =>
                 user.userName === checkData.identifier || user.email === checkData.identifier

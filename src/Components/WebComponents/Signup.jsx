@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import "../../Assets/CSS/Signup.css";
 import { useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react"
@@ -39,7 +39,7 @@ const Signup = () => {
 
     return (
         <div className="SignupBody">
-            <Lottie animationData={Cupid}  className="login1_lottie_animation"/>
+            <Lottie animationData={Cupid} className="login1_lottie_animation" />
             <form onSubmit={handleSubmit}>
                 <div className="SignupheadingsContainer">
                     <h1>Sign Up</h1>
@@ -68,7 +68,7 @@ const Signup = () => {
                     </div>
                 </div>
             </form>
-            <Lottie animationData={Cupid}  className="login2_lottie_animation"/>
+            <Lottie animationData={Cupid} className="login2_lottie_animation" />
         </div>
     );
 };

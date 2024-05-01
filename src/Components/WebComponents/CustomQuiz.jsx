@@ -9,18 +9,18 @@ import Navigation from "./Navigation";
 import { fetchCategories } from "../Functions/Fetcher";
 import { handleQuestionsPromise } from "../Functions/QustionPromise";
 
-const CustomQuiz = ({userStatus}) => {
-    
+const CustomQuiz = ({ userStatus }) => {
+
     const navigate = useNavigate();
-    const [result,setResult] = useState({
-        id:9,
-        category:"General Knowledge",
-        difficulty:"easy",
-        amount:0,
-        type:"multiple"
+    const [result, setResult] = useState({
+        id: 9,
+        category: "General Knowledge",
+        difficulty: "easy",
+        amount: 0,
+        type: "multiple"
 
     });
-    const [optionArray,setOptionArray] = useState([]);
+    const [optionArray, setOptionArray] = useState([]);
 
     //Store the options that we changed
     const handleCategoryChange = (event) => {
@@ -30,7 +30,7 @@ const CustomQuiz = ({userStatus}) => {
             id: optionArray[selectedIndex].id,
             category: optionArray[selectedIndex].name
         }));
-        
+
     };
 
     //Store the input such as Difficulty,Number Of Question and type
@@ -48,13 +48,12 @@ const CustomQuiz = ({userStatus}) => {
         if (result.amount <= 0) {
             alert(`Kindly enter the "Number of Questions" greater than 0`);
         }
-        else
-        {
+        else {
             //QuestionPromise Function
             handleQuestionsPromise(result, navigate);
         }
     }
-    
+
     //Fetch the options
     useEffect(() => {
         const fetchData = async () => {
@@ -67,77 +66,77 @@ const CustomQuiz = ({userStatus}) => {
     }, []);
 
 
-  return (
-    <div>
-        <Navigation userStatus={userStatus}/>
-   <div className="CustomQuiz">
-        <div className="CustomQuiz_Head">
-            <h2>Let's Quiz Our Way to Romance</h2>
-        </div>
+    return (
+        <div>
+            <Navigation userStatus={userStatus} />
+            <div className="CustomQuiz">
+                <div className="CustomQuiz_Head">
+                    <h2>Let's Quiz Our Way to Romance</h2>
+                </div>
 
-        <div className="CustomQuiz_Body">
-           
-            <table className="CustomQuiz_Form">
-                <tr>
-                    <td>
-                        <label htmlFor="category">Choose your Genre</label>
+                <div className="CustomQuiz_Body">
+
+                    <table className="CustomQuiz_Form">
+                        <tr>
+                            <td>
+                                <label htmlFor="category">Choose your Genre</label>
                             </td>
                             <td>
-                        <select name="category" type="text" onChange={handleCategoryChange}>
-                        {
-                            optionArray.map((obj,index)=>{
-                                return (
-                                    <option key={index}>{obj.name}</option>
-                                )
-                            })
-                        }
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label htmlFor="Level">Choose your Difficulty</label>
-                    </td>
-                    <td>
-                      
-                        <select name="difficulty" type="text" onChange={handleInputChange}>
-                            <option value="easy" >Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label htmlFor="amount">Choose number of Questions</label>
-                    </td>
-                    <td>
-                        <input name="amount" type="number" onChange={handleInputChange}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label htmlFor="type">Choose question Type</label>
-                    </td>
-                    <td>
-                        <select name="type" type="text" onChange={handleInputChange}>
-                            <option value="multiple">MCQ</option>
-                            <option value="boolean">True/False</option>
-                        </select>
-                        
-                    </td>
-                </tr>
-            </table>
-            <div className="CustomQuiz_Submit">
-                <button type="submit" onClick={handleSubmit}>Lets Begin</button>
+                                <select name="category" type="text" onChange={handleCategoryChange}>
+                                    {
+                                        optionArray.map((obj, index) => {
+                                            return (
+                                                <option key={index}>{obj.name}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label htmlFor="Level">Choose your Difficulty</label>
+                            </td>
+                            <td>
+
+                                <select name="difficulty" type="text" onChange={handleInputChange}>
+                                    <option value="easy" >Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label htmlFor="amount">Choose number of Questions</label>
+                            </td>
+                            <td>
+                                <input name="amount" type="number" onChange={handleInputChange} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label htmlFor="type">Choose question Type</label>
+                            </td>
+                            <td>
+                                <select name="type" type="text" onChange={handleInputChange}>
+                                    <option value="multiple">MCQ</option>
+                                    <option value="boolean">True/False</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <div className="CustomQuiz_Submit">
+                        <button type="submit" onClick={handleSubmit}>Lets Begin</button>
+                    </div>
+
+                </div>
+
+
             </div>
-          
         </div>
-
-
-   </div>
-   </div>
-  )
+    )
 }
 
 export default CustomQuiz

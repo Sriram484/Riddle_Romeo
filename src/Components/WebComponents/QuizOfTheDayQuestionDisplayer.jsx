@@ -80,9 +80,9 @@ const QuizOfTheDayQuestionDisplayer = () => {
                         }))
                 }))
                 .sort(() => Math.random() - 0.5); // Shuffle the questions
-    
+
             const selectedQuestions = shuffledQuestions.slice(0, 15); // Select the first 15 questions
-    
+
             setQuestions(selectedQuestions);
             setQuizStats({
                 score: 0,
@@ -101,10 +101,8 @@ const QuizOfTheDayQuestionDisplayer = () => {
     //OptionsCSS
 
     const handleClick = async (event, option, index) => {
-        console.log(location.state);
         const optionId = `Question${index}Value${option}`;
         const isCorrect = (option === questions[index].correct_answer);
-        // console.log(isCorrect);
         const isOptionAlreadyCorrect = optionClicked[optionId];
 
         const isAnyOptionClicked = Object.keys(optionClicked).some(key => key.startsWith(`Question${index}Value`) && optionClicked[key]);
@@ -137,12 +135,6 @@ const QuizOfTheDayQuestionDisplayer = () => {
     };
 
 
-
-    useEffect(() => {
-        // console.log(quizStats);
-    }, [quizStats])
-
-
     if (questions.length === 0) {
         return <div>Loading...</div>;
     }
@@ -161,7 +153,7 @@ const QuizOfTheDayQuestionDisplayer = () => {
                         {formattedTime}
                     </div>
                     <div className="QuestionDisplayerSubmitButtonContainer">
-                        <button onClick={(e) => handleSubmit(e)} id = "end">End</button>
+                        <button onClick={(e) => handleSubmit(e)} id="end">End</button>
                     </div>
                 </div>
             </div>

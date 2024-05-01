@@ -19,8 +19,6 @@ export async function updateScore(userStatus, quizStats) {
             userId: userStatus.userId,
             overAllScore: newOverallScore
         });
-        console.log("Score updated successfully:", newOverallScore);
-        console.log(userStatus.overallScore);
     } catch (error) {
         console.error("Error updating score:", error);
     }

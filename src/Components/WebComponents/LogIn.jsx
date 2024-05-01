@@ -37,8 +37,8 @@ const LogIn = () => {
 
     return (
         <div className="LoginBody">
-            <Lottie animationData={Cupid}  className="login1_lottie_animation"/>
-    
+            <Lottie animationData={Cupid} className="login1_lottie_animation" />
+
             <form onSubmit={handleSubmit}>
                 <div className="LoginheadingsContainer">
                     <h1>Log In</h1>
@@ -61,7 +61,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </form>
-            <Lottie animationData={Cupid}  className="login2_lottie_animation"/>
+            <Lottie animationData={Cupid} className="login2_lottie_animation" />
         </div>
     );
 };

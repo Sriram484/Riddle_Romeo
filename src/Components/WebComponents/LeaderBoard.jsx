@@ -27,21 +27,18 @@ const LeaderBoard = ({ userStatus }) => {
   //Fetch the leader board
   useEffect(() => {
     const fetchLeaderboard = async () => {
-        try {
-            //LeaderBoard Function
-            const resultArray = await getResultArray();
-            setLeaderboard(resultArray);
-        } catch (error) {
-            console.error("Error fetching leaderboard data:", error);
-        }
+      try {
+        //LeaderBoard Function
+        const resultArray = await getResultArray();
+        setLeaderboard(resultArray);
+      } catch (error) {
+        console.error("Error fetching leaderboard data:", error);
+      }
     };
 
     fetchLeaderboard();
-}, [btns]);
+  }, [btns]);
 
-  useEffect(() => {
-    console.log(leaderboard);
-  }, [leaderboard])
 
   return (
     <div>
