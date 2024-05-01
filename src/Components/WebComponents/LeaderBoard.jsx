@@ -3,7 +3,6 @@ import LeaderBoardProfiles from './LeaderBoardProfiles';
 import "../../Assets/CSS/LeaderBoard.css"
 import Navigation from './Navigation';
 import { getResultArray } from '../Functions/LeaderBoard';
-import { fetchLeaderboardData } from '../Functions/Fetcher';
 
 const LeaderBoard = ({ userStatus }) => {
   const [btns, setBtns] = useState({
@@ -29,7 +28,7 @@ const LeaderBoard = ({ userStatus }) => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
         try {
-            //Fetcher Function
+            //LeaderBoard Function
             const resultArray = await getResultArray();
             setLeaderboard(resultArray);
         } catch (error) {

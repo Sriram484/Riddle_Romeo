@@ -8,9 +8,6 @@ export const getResultArray = async () => {
     const scorePromise = axios.get("https://riddle-romeo-login-api-8.onrender.com/api/v1/score/getall");
 
     const [userDataResponse, scoreResponse] = await Promise.all([userDataPromise, scorePromise]);
-    console.log(userDataPromise);
-    console.log(scorePromise);
-
   
     const resultArray = userDataResponse.data.map(user => {
      
@@ -23,7 +20,7 @@ export const getResultArray = async () => {
         country:user.country
       };
     });
-    console.log(resultArray);
+
     resultArray.sort((a, b) => {
       if (b.score !== a.score) {
           return b.score - a.score; // Sort by score
@@ -36,11 +33,10 @@ export const getResultArray = async () => {
               return a.name.localeCompare(b.name); // If scores are equal, sort by name
           }
       }
-  });
+    });
   
-  
-
-    return resultArray;
+    // Return only the top 10 results
+    return resultArray.slice(0, 10);
 
   } catch (error) {
     console.error("Error fetching data:", error);

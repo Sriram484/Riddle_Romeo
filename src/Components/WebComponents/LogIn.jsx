@@ -30,10 +30,7 @@ const LogIn = () => {
         await handleLoginSubmit(checkData, setUserStatus, navigate, "https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/getall");
     };
 
-    useEffect(()=>{
-        console.log(userStatus);
-    },[userStatus]);
-
+    //Navigate to SignUp Page
     const handleNavigateToLogin = () => {
         navigate("/sig");
     };

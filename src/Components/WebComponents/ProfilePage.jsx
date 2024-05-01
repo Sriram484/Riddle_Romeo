@@ -3,6 +3,7 @@ import "../../Assets/CSS/ProfilePage.css";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { convertToBase64,getUserData,updateUserData } from "../Functions/ProfilePage";
 
 
 const ProfilePage = () => {
@@ -18,26 +19,12 @@ const ProfilePage = () => {
         image: ""
     });
 
-    const toggleSection = (section) => {
-        setSections(prevState => {
-            const newState = {
-                profile: false,
-                password: false,
-                info: false
-            };
-
-            newState[section] = true;
-
-            return newState;
-        });
-
-    };
+    //PreFetch the data of the user
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
-                const userData = response.data;
-    
+                const userData = await getUserData(userStatus.userId); // Fetch user data using getUserData function
+        
                 // Update generalUserData state
                 setGeneralUserData({
                     username: userData.userName,
@@ -64,7 +51,21 @@ const ProfilePage = () => {
     
         fetchData();
     }, [userStatus.userId]);
-    
+
+    const toggleSection = (section) => {
+        setSections(prevState => {
+            const newState = {
+                profile: false,
+                password: false,
+                info: false
+            };
+
+            newState[section] = true;
+
+            return newState;
+        });
+
+    };
 
     const [generalUserData, setGeneralUserData] = useState({
         username: "",
@@ -113,18 +114,15 @@ const ProfilePage = () => {
     };
 
 
-    const handleGeneralSubmit =async (e) => {
+    const handleGeneralSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
-
+    
         try {
-          
-            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
+            // Fetch user data
+            const currentData = await getUserData(userStatus.userId);
     
-         
-            const currentData = response.data;
-    
-          
+            // Create updated data object
             const newData = {
                 ...currentData,
                 userName: generalUserData.username,
@@ -132,99 +130,64 @@ const ProfilePage = () => {
                 email: generalUserData.email
             };
     
-           
-            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
+            // Update user data
+            await updateUserData(userStatus.userId, newData);
     
             console.log("Data updated successfully");
         } catch (error) {
             console.error('Error:', error);
         }
     };
+    
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
     
         try {
-          
-            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
+            // Fetch user data
+            const currentData = await getUserData(userStatus.userId);
     
-         
-            const currentData = response.data;
-    
-          
+            // Create updated data object
             const newData = {
                 ...currentData,
-                password:passwordUserData.password
+                password: passwordUserData.password
             };
     
-           
-            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
+            // Update user data
+            await updateUserData(userStatus.userId, newData);
     
             console.log("Data updated successfully");
         } catch (error) {
             console.error('Error:', error);
         }
-        
     };
+    
     const handleInfoSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
     
         try {
-          
-            const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
+            // Fetch user data
+            const currentData = await getUserData(userStatus.userId);
     
-         
-            const currentData = response.data;
-    
-          
+            // Create updated data object
             const newData = {
                 ...currentData,
-                birthDay:infoUserData.birthday,
-                country:infoUserData.country,
-                phone:infoUserData.phone,
+                birthDay: infoUserData.birthday,
+                country: infoUserData.country,
+                phone: infoUserData.phone,
                 email: infoUserData.email
-             
             };
     
-           
-            await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
-    
-            console.log("Data updated successfully");
+            // Update user data
+            await updateUserData(userStatus.userId, newData);
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error handling info submit:', error);
         }
-        console.log(infoUserData);
-    };
-   
-
-    const convertToBase64 = async (e) => {
-        console.log(e);
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onload = async () => {
-            setImageUserData({ image: reader.result });
-            console.log("Image data:", reader.result);
-            try {
-                const response = await axios.get(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/search/${userStatus.userId}`);
-                const currentData = response.data;
-                console.log("Current data:", currentData);
-                const newData = {
-                    ...currentData,
-                    image: reader.result
-                };
-                console.log("New data:", newData);
-                await axios.put(`https://riddle-romeo-login-api-8.onrender.com/api/v1/userData/edit/${userStatus.userId}`, newData);
-                console.log("Data updated successfully");
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-    };
     
-
-
-
+        console.log(infoUserData);
+    }
+    
     return (
         <div className="profile_MainBody">
             <div class="profile_container">
@@ -252,7 +215,8 @@ const ProfilePage = () => {
                                 <div class="profile_uploadContainerButtons">
                                     <label class="profile_uploadBtn">
                                         Upload
-                                        <input type="file" class="profile_imgInput" onChange={convertToBase64}/>
+                                        <input type="file" className="profile_imgInput" onChange={(e) => convertToBase64(e, userStatus, setImageUserData)} />
+
                                     </label>
                                 </div>
                             </div>

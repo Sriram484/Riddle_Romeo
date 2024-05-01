@@ -7,6 +7,7 @@ import UrlCreator from "../Functions/UrlCreator";
 import QuestionObjectCreator from "../Functions/QuestionObjectCreator";
 import Navigation from "./Navigation";
 import { fetchCategories } from "../Functions/Fetcher";
+import { handleQuestionsPromise } from "../Functions/QustionPromise";
 
 const CustomQuiz = ({userStatus}) => {
     
@@ -46,24 +47,11 @@ const CustomQuiz = ({userStatus}) => {
     const handleSubmit = () => {
         if (result.amount <= 0) {
             alert(`Kindly enter the "Number of Questions" greater than 0`);
-        } else {
-            const URL = UrlCreator(result);
-    
-            const QuestionsPromise = QuestionObjectCreator(URL);
-            
-   
-            QuestionsPromise.then(({ responseCode, questions }) => {
-             
-                if(responseCode===1)
-                {
-                    navigate("/missing");
-                }
-                else{
-                    navigate('/QuestionDisplayer', { state: { questions, responseCode } });
-                }
-            }).catch(error => {
-                console.error("Error fetching questions:", error);
-            });
+        }
+        else
+        {
+            //QuestionPromise Function
+            handleQuestionsPromise(result, navigate);
         }
     }
     
@@ -71,7 +59,7 @@ const CustomQuiz = ({userStatus}) => {
     useEffect(() => {
         const fetchData = async () => {
             //Called from Function file
-            const categories = await fetchCategories();
+            const categories = await fetchCategories('https://opentdb.com/api_category.php');
             setOptionArray(categories);
         };
 

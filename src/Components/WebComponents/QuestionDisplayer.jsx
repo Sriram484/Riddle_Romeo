@@ -71,7 +71,6 @@ const QuestionDisplayer = () => {
 
     useEffect(() => {
         if (location.state && location.state.questions) {
-            // console.log(location.state.questions);
             const updatedQuestions = location.state.questions.map(question => {
                 const decodedQuestion = {
                     ...question,
@@ -94,22 +93,19 @@ const QuestionDisplayer = () => {
             questionType: location.state.questions[0].type,
             difficulty: location.state.questions[0].difficulty
         }));
-        // console.log(location.state.questions[0].type);
-
     }, [location.state]);
 
-    //NumberJs
+
+    //Display the current index
     const handleIndex = (index) => {
         setIndex(index);
     }
 
-    //OptionsCSS
-
+    //Options CSS to add BullEye
     const handleClick = async (event, option, index) => {
         console.log(location.state);
         const optionId = `Question${index}Value${option}`;
         const isCorrect = (option === questions[index].correct_answer);
-        // console.log(isCorrect);
         const isOptionAlreadyCorrect = optionClicked[optionId];
 
         const isAnyOptionClicked = Object.keys(optionClicked).some(key => key.startsWith(`Question${index}Value`) && optionClicked[key]);
@@ -140,13 +136,6 @@ const QuestionDisplayer = () => {
         }
 
     };
-
-
-
-    useEffect(() => {
-        // console.log(quizStats);
-    }, [quizStats])
-
 
     if (questions.length === 0) {
         return <div>Loading...</div>;
