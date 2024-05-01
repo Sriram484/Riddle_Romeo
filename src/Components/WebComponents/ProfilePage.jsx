@@ -137,8 +137,10 @@ const ProfilePage = () => {
 
             // Update user data
             
-                console.log("currentData:", currentData);
-console.log("newData:", newData);
+            console.log("currentData:");
+            console.log(currentData);
+console.log("newData:");
+console.log(newData);
 
             await updateUserData(userStatus.userId, newData);
 
@@ -181,8 +183,10 @@ console.log("newData:", newData);
                 };
 
                 
-                console.log("currentData:", currentData);
-console.log("newData:", newData);
+                console.log("currentData:");
+                console.log(currentData);
+console.log("newData:");
+console.log(newData);
 
                 // Update user data
                 await updateUserData(userStatus.userId, newData);
@@ -213,8 +217,10 @@ console.log("newData:", newData);
 
             // Update user data
             
-                console.log("currentData:", currentData);
-console.log("newData:", newData);
+            console.log("currentData:");
+            console.log(currentData);
+console.log("newData:");
+console.log(newData);
 
             await updateUserData(userStatus.userId, newData);
         } catch (error) {
