@@ -10,7 +10,7 @@ import axios from "axios";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 
 const Score = () => {
-  const { userStatus, setUserStatus } = useContext(UserStatusContext);
+  const { userStatus } = useContext(UserStatusContext);
     const [quizStatus,setQuizStatus] = useState({
         score:0,
         difficulty:"",

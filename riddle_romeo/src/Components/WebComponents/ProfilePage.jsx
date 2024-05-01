@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
     const navigate = useNavigate();
-    const { userStatus, setUserStatus } = useContext(UserStatusContext);
+    const { userStatus } = useContext(UserStatusContext);
     const [sections, setSections] = useState({
         profile: true,
         password: false,
@@ -95,7 +95,7 @@ const ProfilePage = () => {
         
     };
     const handleChangePasswordData = (e) => {
-        const { name, value } = e.target;
+        const {  value } = e.target;
         
         setPasswordUserData({ password: value });
         

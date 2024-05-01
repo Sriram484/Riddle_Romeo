@@ -1,7 +1,7 @@
 import "../../Assets/CSS/Navigation.css"
 import React, { useContext } from 'react'
 import { FaBars } from "react-icons/fa";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import  Logo from "../../Assets/Images/Logo.jpeg"
 
@@ -9,7 +9,7 @@ import  Logo from "../../Assets/Images/Logo.jpeg"
 const Navigation = () => {
   const { userStatus, setUserStatus } = useContext(UserStatusContext);
   var logBool = userStatus.status;
-  const navigate = useNavigate();
+
 
   // Conditionally render navigation links based on logBool
   let navLinks;
