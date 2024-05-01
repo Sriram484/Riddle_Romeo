@@ -170,11 +170,10 @@ const ProfilePage = () => {
 
             }
             else {
-                const currentData = await getUserData(userStatus.userId);
                 // Create updated data object
                 const newData = {
                     ...currentData,
-                    password: passwordUserData.newPassword
+                    // password: passwordUserData.newPassword
                 };
 
                 console.log(newData);
