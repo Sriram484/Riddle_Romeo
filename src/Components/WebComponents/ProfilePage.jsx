@@ -105,7 +105,6 @@ const ProfilePage = () => {
             ...prevData,
             [name]: value
         }));
-        setPasswordUserData
     };
 
     const handleChangeInfoData = (e) => {
@@ -152,6 +151,10 @@ const ProfilePage = () => {
         try {
             // Fetch user data
             const currentData = await getUserData(userStatus.userId);
+            console.log(currentData);
+            console.log(currentData.password);
+            console.log(passwordUserData);
+            
             if (currentData.password !== passwordUserData.currentPassword) {
                 alert("The password u entered is wrong");
                 return;
