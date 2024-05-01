@@ -179,7 +179,7 @@ console.log(newData);
                 // Create updated data object
                 const newData = {
                     ...currentData,
-                    // password: passwordUserData.newPassword
+                    password: passwordUserData.newPassword
                 };
 
                 
