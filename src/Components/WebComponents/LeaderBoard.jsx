@@ -30,7 +30,7 @@ const LeaderBoard = ({ userStatus }) => {
     const fetchLeaderboard = async () => {
         try {
             //Fetcher Function
-            const resultArray = await fetchLeaderboardData();
+            const resultArray = await getResultArray();
             setLeaderboard(resultArray);
         } catch (error) {
             console.error("Error fetching leaderboard data:", error);
