@@ -3,7 +3,7 @@ import "../../Assets/CSS/ProfilePage.css";
 import { UserStatusContext } from '../useContextComponent/UserStatusProvider';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import { convertToBase64,getUserData,updateUserData } from "../Functions/ProfilePage";
+import { convertToBase64, getUserData, updateUserData } from "../Functions/ProfilePage";
 
 
 const ProfilePage = () => {
@@ -19,19 +19,21 @@ const ProfilePage = () => {
         image: ""
     });
 
+    const [fileInputDisabled, setFileInputDisabled] = useState(true);
+
     //PreFetch the data of the user
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const userData = await getUserData(userStatus.userId); // Fetch user data using getUserData function
-        
+
                 // Update generalUserData state
                 setGeneralUserData({
                     username: userData.userName,
                     name: userData.name,
                     email: userData.email
                 });
-    
+
                 // Update infoUserData state
                 setInfoUserData({
                     birthday: userData.birthDay,
@@ -39,7 +41,7 @@ const ProfilePage = () => {
                     phone: userData.phone,
                     email: userData.email
                 });
-    
+
                 // Update imageUserData state if image exists
                 if (userData.image) {
                     setImageUserData({ image: userData.image });
@@ -48,7 +50,7 @@ const ProfilePage = () => {
                 console.error('Error fetching user data:', error);
             }
         };
-    
+
         fetchData();
     }, [userStatus.userId]);
 
@@ -74,7 +76,9 @@ const ProfilePage = () => {
     });
 
     const [passwordUserData, setPasswordUserData] = useState({
-        password: ""
+        currentPassword: "",
+        newPassword: "",
+        repeatPassword: ""
     });
 
     const [infoUserData, setInfoUserData] = useState({
@@ -86,42 +90,44 @@ const ProfilePage = () => {
 
     const handleChangeGeneralData = (e) => {
         const { name, value } = e.target;
-       
-            setGeneralUserData((prevUserData) => ({
-                ...prevUserData,
-                [name]: value
-            }));
-            console.log(generalUserData);
 
-        
+        setGeneralUserData((prevUserData) => ({
+            ...prevUserData,
+            [name]: value
+        }));
+        console.log(generalUserData);
+
+
     };
-    const handleChangePasswordData = (e) => {
-        const {  value } = e.target;
-        
-        setPasswordUserData({ password: value });
-        
-        
-    };
-    const handleChangeInfoData = (e) => {
-        
+    const handleChangePasswordData = async (e) => {
         const { name, value } = e.target;
-            setInfoUserData((prevUserData) => ({
-                ...prevUserData,
-                [name]: value
-            }));
-            
-        
+        setPasswordUserData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+        setPasswordUserData
+    };
+
+    const handleChangeInfoData = (e) => {
+
+        const { name, value } = e.target;
+        setInfoUserData((prevUserData) => ({
+            ...prevUserData,
+            [name]: value
+        }));
+
+
     };
 
 
     const handleGeneralSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
-    
+
         try {
             // Fetch user data
             const currentData = await getUserData(userStatus.userId);
-    
+
             // Create updated data object
             const newData = {
                 ...currentData,
@@ -129,47 +135,56 @@ const ProfilePage = () => {
                 name: generalUserData.name,
                 email: generalUserData.email
             };
-    
+
             // Update user data
             await updateUserData(userStatus.userId, newData);
-    
+
             console.log("Data updated successfully");
         } catch (error) {
             console.error('Error:', error);
         }
     };
-    
+
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
-    
+
         try {
             // Fetch user data
             const currentData = await getUserData(userStatus.userId);
-    
-            // Create updated data object
-            const newData = {
-                ...currentData,
-                password: passwordUserData.password
-            };
-    
-            // Update user data
-            await updateUserData(userStatus.userId, newData);
-    
-            console.log("Data updated successfully");
+            if (currentData.password !== passwordUserData.currentPassword) {
+                alert("The password u entered is wrong");
+                return;
+            }
+            else if (passwordUserData.newPassword !== passwordUserData.repeatPassword) {
+                alert("The new password and repeated password do not match");
+                return;
+            }
+            else {
+                // Create updated data object
+                const newData = {
+                    ...currentData,
+                    password: passwordUserData.password
+                };
+
+                // Update user data
+                await updateUserData(userStatus.userId, newData);
+
+                console.log("Data updated successfully");
+            }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-    
+
     const handleInfoSubmit = async (e) => {
         e.preventDefault();
         console.log(userStatus.userId);
-    
+
         try {
             // Fetch user data
             const currentData = await getUserData(userStatus.userId);
-    
+
             // Create updated data object
             const newData = {
                 ...currentData,
@@ -178,16 +193,16 @@ const ProfilePage = () => {
                 phone: infoUserData.phone,
                 email: infoUserData.email
             };
-    
+
             // Update user data
             await updateUserData(userStatus.userId, newData);
         } catch (error) {
             console.error('Error handling info submit:', error);
         }
-    
+
         console.log(infoUserData);
     }
-    
+
     return (
         <div className="profile_MainBody">
             <div class="profile_container">
@@ -203,7 +218,7 @@ const ProfilePage = () => {
                         <a class="profile_sidebarLinks" onClick={() => toggleSection('info')}>
                             Info
                         </a>
-                        <a class="profile_sidebarLinks" onClick={()=>{navigate("/")}}>
+                        <a class="profile_sidebarLinks" onClick={() => { navigate("/") }}>
                             Back
                         </a>
                     </div>
@@ -258,23 +273,23 @@ const ProfilePage = () => {
                         </div>
                         <div className={sections.password ? "Visible" : "Hidden"} class="password_mainBody Hidden" id="account-change-password" >
                             <div class="password_subBody">
-                            <div className="form-group">
+                                <div className="form-group">
                                     <label className="form-label">Current password</label>
-                                    <input type="password" className="form-control" />
+                                    <input type="password" className="form-control" name="currentPassword" />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">New password</label>
                                     <input
                                         type="password"
                                         className="form-control"
-                                        name="password"
+                                        name="newPassword"
                                         value={passwordUserData.password}
                                         onChange={handleChangePasswordData}
                                     />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Repeat new password</label>
-                                    <input type="password" className="form-control" />
+                                    <input type="password" className="form-control" name="repeatPassword" />
                                 </div>
                                 <div className="form-group">
                                     <button onClick={handlePasswordSubmit} className="ScoreSubmitButton">Submit</button>
@@ -284,7 +299,7 @@ const ProfilePage = () => {
 
                         <div className={sections.info ? "Visible" : "Hidden"} class="info_mainBody Hidden" id="account-info">
                             <div class="info_subBody">
-                            <div className="form-group">
+                                <div className="form-group">
                                     <label className="form-label">Birthday</label>
                                     <input
                                         type="text"

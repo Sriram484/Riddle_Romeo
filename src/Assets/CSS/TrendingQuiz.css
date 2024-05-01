@@ -1,69 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Lobster&family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Comfortaa:wght@300..700&family=Jersey+25&family=Lobster&family=Satisfy&family=Silkscreen:wght@400;700&family=Yatra+One&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Jersey+25&family=Lobster&family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aladin&family=Alegreya:ital,wght@0,400..900;1,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Almendra+SC&family=Comfortaa:wght@300..700&family=Jersey+25&family=Lobster&family=Satisfy&family=Silkscreen:wght@400;700&family=Yatra+One&display=swap");
+* {
   font-family: "Silkscreen", sans-serif;
   font-weight: 400;
   font-style: normal;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  text-decoration: none;
 }
 
 .Trending_Body {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    margin-left: 4rem;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
 }
 
 .Trending_Head {
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 
 .Trending_Head p {
-    font-family: "Aladin", system-ui;
+  font-family: "Aladin", system-ui;
   font-weight: 400;
   font-style: normal;
-    font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 
-.Trending_List  {
-    list-style: none;
-    display: flex;
-  
-    flex-direction: row;
-    margin-bottom: -2px; /* Adjust margin to overlap borders */
+.Trending_List {
+  list-style: none;
+  display: flex;
+
+  flex-direction: row;
+  margin-bottom: -2px; /* Adjust margin to overlap borders */
 }
 
 .Trending_List div {
-    padding: 0 1rem; /* Ensure consistent margin between list items */
-    width: fit-content;
-    color: #666666;
-    cursor: pointer;
-    /* font-family: "Satisfy", cursive;
+  padding: 0 1rem; /* Ensure consistent margin between list items */
+  width: fit-content;
+  color: #666666;
+  cursor: pointer;
+  /* font-family: "Satisfy", cursive;
     font-weight: 400;
     font-style: normal; */
-    font-size: 24px;
-   
+  font-size: 24px;
 }
 
-.Trending_List div.Active
-{
-    /* border-bottom: 2px solid black;
+.Trending_List div.Active {
+  /* border-bottom: 2px solid black;
     color: black; */
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .Trending_List div:hover {
-    color: black;
+  color: black;
 }
 
 .Trending_List div:last-child {
-    /* border-bottom: none; Remove border from the last li to avoid double borders */
+  /* border-bottom: none; Remove border from the last li to avoid double borders */
 }
 
 /* .Trending_Carousel {
@@ -72,29 +70,18 @@
     margin: 0 1rem;
 } */
 .Trending_Carousel {
-    height: 500px;
-    display: inline-block;
-    justify-content: center;
-    margin-top: 2rem; /* Adjust top margin as needed */
+  height: 500px;
+  display: inline-block;
+  justify-content: center;
+  margin-top: 2rem; /* Adjust top margin as needed */
 }
 
-.List_Headings{
-    min-width: 170px;
+.List_Headings {
+  min-width: 170px;
 }
 
-@media screen and (max-width: 600px) {
-   .Trending_Carousel{
-    margin-top: 0;
-   }
-   .Trending_Body{
-    margin-left: 0;
-   }
-   .Trending_Head{
-    margin-left: 15px;
-   }
-  }
 
-  .carousel-items {
+.carousel-items {
     display: flex;
     justify-content: space-between; /* Equal space between items */
     margin: 0 -10px; /* Adjust as needed */
@@ -104,4 +91,16 @@
 .carousel-item {
     flex: 0 0 auto;
     margin: 0 10px; /* Adjust as needed */
+}
+
+@media screen and (max-width: 600px) {
+  .Trending_Carousel {
+    margin-top: 0;
+  }
+  .Trending_Body {
+    margin-left: 0;
+  }
+  .Trending_Head {
+    margin-left: 15px;
+  }
 }

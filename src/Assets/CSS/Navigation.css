@@ -1,95 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Comfortaa:wght@300..700&family=Jersey+25&family=Lobster&family=Satisfy&family=Yatra+One&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif ;
-    text-decoration: none;
-   }
-  
-   header
-   {
-    position: relative;
-    top: 0;
+@import url("https://fonts.googleapis.com/css2?family=Almendra+SC&family=Comfortaa:wght@300..700&family=Jersey+25&family=Lobster&family=Satisfy&family=Yatra+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 50px;
+  color: #595c5c;
+}
+
+header .navbar ul {
+  list-style: none;
+}
+
+header .navbar ul li {
+  position: relative;
+  float: left;
+}
+
+header .navbar ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px;
+  font-family: "Yatra One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #595c5c;
+  display: block;
+}
+
+header .navbar ul li a:hover {
+  color: rgb(33, 33, 33);
+}
+
+#menu_bar {
+  font-size: 50px;
+  color: #333;
+  cursor: pointer;
+  display: none;
+}
+#menu_check {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  header .logo,
+  #menu_bar {
+    font-size: 30px;
+  }
+  header {
+    padding: 20px;
+  }
+  #menu_bar {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    padding: 0px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-   }
-
-   header .logo{
-    font-size: 50px;
-    color: #595c5c;
-   }
-
-   header .navbar ul{
-    list-style: none;
-   }
-
-   header .navbar ul li{
+    background-color: white;
+    z-index: 999;
+    border-top: 1px solid rbga(0, 0, 0, 1);
+    display: none;
+  }
+  header .navbar ul li {
     position: relative;
-    float: left;
-   }
-
-   header .navbar ul li a{
-    text-decoration: none;
-    font-size: 20px;
-    padding: 20px;
-    font-family: "Yatra One", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    color: #595c5c;
-    display: block;
-   }
-  
-   header .navbar ul li a:hover{
-    color: rgb(33, 33, 33);
-   }
-  
-   #menu_bar{
-    font-size: 50px;
-    color: #333;
-    cursor: pointer;
-    display: none;
-   }
-   #menu_check{
-    display: none;
-   }
-  
-   @media(max-width:900px) {
-      
-   header .logo, #menu_bar{
-    font-size: 30px;
-   }
-      header{
-        padding: 20px;
-      }
-      #menu_bar{
-          display: initial;
-  
-      }
-      header .navbar{
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: white;
-        z-index: 999;
-        border-top: 1px solid rbga(0,0,0,1);
-        display: none;
-      }
-      header .navbar ul li{
-        position: relative;
-        width: fit-content;
-        right: 0;
-        width: 100%;
-      }
-      #menu_check:checked ~.navbar{
-        display: initial;
-      }
-      
-  
-   }
+    width: fit-content;
+    right: 0;
+    width: 100%;
+  }
+  #menu_check:checked ~ .navbar {
+    display: initial;
+  }
+}

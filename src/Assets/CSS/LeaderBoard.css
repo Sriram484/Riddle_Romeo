@@ -1,109 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-#main *{
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+#main * {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-#main{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .board {
-
-    text-align: center;
-
+  text-align: center;
 }
 
-.board .leaderboard{
-    margin-bottom: 1em;
+.board .leaderboard {
+  margin-bottom: 1em;
 }
 
-.LeaderButtonContainer{
-    display: flex;
-    flex-direction: row;
-    row-gap: 10px;
-    justify-content: center;
-    align-items: center;
+.LeaderButtonContainer {
+  display: flex;
+  flex-direction: row;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
-.LeaderButton{
-    color: #2C3131;
-    background-color:#F3F3F2 ;
-    padding: 8px 10px;
-    border-radius: 5px;
-    margin: 7px 0;
-    font-size: 18px;
-    margin: 3px;
+.LeaderButton {
+  color: #2c3131;
+  background-color: #f3f3f2;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin: 7px 0;
+  font-size: 18px;
+  margin: 3px;
 }
 
-
-.ActiveBtn{
-    background-color: #2C3131;
-    color: #F3F3F2;
-   
+.ActiveBtn {
+  background-color: #2c3131;
+  color: #f3f3f2;
 }
 
-
-#profile{
-    margin: 2rem;
-    margin-top: 3em;
+#profile {
+  margin: 2rem;
+  margin-top: 3em;
 }
 
-#profile .flex{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1em;
-    text-align: left;
-    margin-bottom: 2em;
+#profile .flex {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1em;
+  text-align: left;
+  margin-bottom: 2em;
 }
 
-#profile .flex .item{
-    display: flex;
-    align-items: center;
+#profile .flex .item {
+  display: flex;
+  align-items: center;
 }
 
-#profile .flex img{
-    height: 70px;
-    width:70px;
-    border-radius: 50%;
+#profile .flex img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
 }
 
-#profile .flex .info{
-   padding: 1em;
+#profile .flex .info {
+  padding: 1em;
 }
 
-.text-dark{
-    color: #2C3131;
+.text-dark {
+  color: #2c3131;
 }
 
 .flex {
-    max-width: 1500px;
-    min-height: 100px;
-    display: flex;
-    align-items: center; /* Ensure all items stretch to match the height of the tallest item */
-    justify-content: space-between; /* Distribute items evenly along the main axis */
-    border: 0.75px solid black;
-    padding: 10px;
-    border-radius: 15px
+  max-width: 1500px;
+  min-height: 100px;
+  display: flex;
+  align-items: center; /* Ensure all items stretch to match the height of the tallest item */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  border: 0.75px solid black;
+  padding: 10px;
+  border-radius: 15px;
 }
 .flex:hover {
-    transform: scale(1.05); /* Use 'transform' instead of 'scale' */
-    transition: all 0.3s ease; /* Specify which properties to transition and the duration */
+  transform: scale(1.05); /* Use 'transform' instead of 'scale' */
+  transition: all 0.3s ease; /* Specify which properties to transition and the duration */
 }
 
-.itemNumber{
-    font-size: 24px;
+.itemNumber {
+  font-size: 24px;
 }
 
-
-@media(max-width:900px) {
-   .leaderboard{
+@media (max-width: 900px) {
+  .leaderboard {
     font-size: 22px;
-   }
-   *{
+  }
+  * {
     font-size: 18px;
-   }
+  }
 }
